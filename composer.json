@@ -1,0 +1,22 @@
+{
+  "name": "dan-lyn/ElasticsearchExplorerBundle",
+  "type": "library",
+  "description": "",
+  "keywords": ["elasticsearch", "symfony2"],
+  "homepage": "https://github.com/dan-lyn/ElasticsearchExplorer/",
+  "license" : "MIT",
+  "authors" : [
+    {
+      "name": "dan-lyn",
+      "homepage": "https://github.com/dan-lyn/"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/dan-lyn/ElasticsearchExplorerBundle/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "DanLyn\\ElasticsearchExplorerBundle\\": "src"
+    }
+  }
+}
