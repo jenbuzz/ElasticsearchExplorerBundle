@@ -1,0 +1,3 @@
+dan_lyn_elasticsearch_explorer_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:index }
