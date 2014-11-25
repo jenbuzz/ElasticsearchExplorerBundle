@@ -1,6 +1,6 @@
 {
-  "name": "dan-lyn/ElasticsearchExplorerBundle",
-  "type": "library",
+  "name": "dan-lyn/elasticsearch-explorer-bundle",
+  "type": "symfony-bundle",
   "description": "",
   "keywords": ["elasticsearch", "symfony2"],
   "homepage": "https://github.com/dan-lyn/ElasticsearchExplorerBundle/",
@@ -15,8 +15,9 @@
     "issues": "https://github.com/dan-lyn/ElasticsearchExplorerBundle/issues"
   },
   "autoload": {
-    "psr-4": {
-      "DanLyn\\ElasticsearchExplorerBundle\\": "src"
+    "psr-0": {
+      "DanLyn\\ElasticsearchExplorerBundle\\": ""
     }
-  }
+  },
+  "target-dir": "DanLyn/ElasticsearchExplorerBundle"
 }
