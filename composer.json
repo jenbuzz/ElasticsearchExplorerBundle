@@ -3,7 +3,7 @@
   "type": "library",
   "description": "",
   "keywords": ["elasticsearch", "symfony2"],
-  "homepage": "https://github.com/dan-lyn/ElasticsearchExplorer/",
+  "homepage": "https://github.com/dan-lyn/ElasticsearchExplorerBundle/",
   "license" : "MIT",
   "authors" : [
     {
