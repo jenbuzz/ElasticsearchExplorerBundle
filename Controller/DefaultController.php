@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('DanLynElasticsearchExplorerBundle:Default:index.html.twig');
     }
+
+    public function searchAction($searchterm = false)
+    {
+        return $this->render('DanLynElasticsearchExplorerBundle:Default:index.html.twig');
+    }
 }
