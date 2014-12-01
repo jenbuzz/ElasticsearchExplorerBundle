@@ -13,6 +13,6 @@ class DefaultController extends Controller
 
     public function searchAction($searchterm = false)
     {
-        return $this->render('DanLynElasticsearchExplorerBundle:Default:index.html.twig');
+        return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array('searchterm' => $searchterm));
     }
 }
