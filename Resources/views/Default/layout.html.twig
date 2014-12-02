@@ -11,8 +11,19 @@
     {% endstylesheets %}
   </head>
   <body>
+    <div class="contain-to-grid sticky">
+      <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+        <section class="top-bar-section">
+          <ul class="left">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Search</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
     <div class="content">
-        {% block content %}{% endblock %}
+      {% block content %}{% endblock %}
     </div>
 
     {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.js' %}
