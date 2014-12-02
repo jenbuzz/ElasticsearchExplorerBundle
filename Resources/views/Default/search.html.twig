@@ -2,34 +2,6 @@
 
 {% block title 'ElasticsearchExplorer: Search' %}
 
-{% block head %}
-{% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/normalize.css' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-{% endstylesheets %}
-{% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/foundation.min.css' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-{% endstylesheets %}
-
-{% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.cookie.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/modernizr.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/placeholder.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/fastclick.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/foundation.min.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% endblock %}
-
 {% block content %}
 ElasticsearchExplorer -> Search {% if searchterm %}-> {{ searchterm }}{% endif %}
 {% endblock %}
