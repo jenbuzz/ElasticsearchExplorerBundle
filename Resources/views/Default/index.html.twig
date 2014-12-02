@@ -1,3 +1,8 @@
+{% extends 'DanLynElasticsearchExplorerBundle:Default:layout.html.twig' %}
+
+{% block title 'ElasticsearchExplorer' %}
+
+{% block head %}
 {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/normalize.css' filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
 {% endstylesheets %}
@@ -23,5 +28,8 @@
 {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/foundation.min.js' %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
+{% endblock %}
 
+{% block content %}
 ElasticsearchExplorer
+{% endblock %}
