@@ -1,4 +1,5 @@
 #ElasticsearchExplorerBundle
+Elasticsearch status and search functionality in a Symfony2 bundle.
 
 ##Installation
 Add the following snippet to your local projects composer.json file:
