@@ -12,14 +12,17 @@ class DefaultController extends Controller
         $arrIndexes = $objElasticsearchManager->getIndexStats();
 
         return $this->render('DanLynElasticsearchExplorerBundle:Default:index.html.twig', array(
-          'indexes' => $arrIndexes,
+            'indexes' => $arrIndexes,
         ));
     }
 
     public function searchAction($index = false, $searchterm = false)
     {
-        $client = new \Elasticsearch\Client();
+        $objElasticsearchManager = $this->get('elasticsearch_manager');
 
-        return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array('index' => $index, 'searchterm' => $searchterm));
+        return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
+            'index' => $index, 
+            'searchterm' => $searchterm,
+        ));
     }
 }
