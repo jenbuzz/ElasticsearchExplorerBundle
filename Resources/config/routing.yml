@@ -6,6 +6,10 @@ dan_lyn_elasticsearch_explorer_search:
     path:     /elasticsearchexplorer/search/
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
 
+dan_lyn_elasticsearch_explorer_search_index:
+    path:     /elasticsearchexplorer/search/{index}/
+    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
+
 dan_lyn_elasticsearch_explorer_search_term:
-    path:     /elasticsearchexplorer/search/{index}/{searchterm}
+    path:     /elasticsearchexplorer/search/{index}/{searchterm}/
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
