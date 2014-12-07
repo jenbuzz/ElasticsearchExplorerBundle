@@ -3,5 +3,5 @@
 {% block title 'ElasticsearchExplorer: Search' %}
 
 {% block content %}
-ElasticsearchExplorer -> Search {% if searchterm %}-> {{ searchterm }}{% endif %}
+ElasticsearchExplorer -> Search {% if index %}-> {{ index }}{% endif %} {% if searchterm %}-> {{ searchterm }}{% endif %}
 {% endblock %}

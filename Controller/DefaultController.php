@@ -27,10 +27,10 @@ class DefaultController extends Controller
         ));
     }
 
-    public function searchAction($searchterm = false)
+    public function searchAction($index = false, $searchterm = false)
     {
         $client = new \Elasticsearch\Client();
 
-        return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array('searchterm' => $searchterm));
+        return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array('index' => $index, 'searchterm' => $searchterm));
     }
 }
