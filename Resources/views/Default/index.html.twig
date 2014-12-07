@@ -6,7 +6,7 @@
   {% for index in indexes %}
     <div class="row">
       <div class="large-6 columns">
-        <h2>{{ index.name }}</h2>
+        <a href="{{ path('dan_lyn_elasticsearch_explorer_search_index', {index: 'nfl'}) }}"><h2>{{ index.name }}</h2></a>
         <table>
           <tr>
             <td><strong>Total docs</strong></td>
