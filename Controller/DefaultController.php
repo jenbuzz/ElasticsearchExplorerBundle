@@ -22,7 +22,7 @@ class DefaultController extends Controller
         $arrIndexes = $objElasticsearchManager->getIndexStats();
 
         return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
-            'index' => $index, 
+            'searchindex' => $index, 
             'searchterm' => $searchterm,
             'indexes' => $arrIndexes,
         ));
