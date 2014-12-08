@@ -3,5 +3,19 @@
 {% block title 'ElasticsearchExplorer: Search' %}
 
 {% block content %}
-ElasticsearchExplorer -> Search {% if index %}-> {{ index }}{% endif %} {% if searchterm %}-> {{ searchterm }}{% endif %}
+
+<form>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Select index:
+        <select>
+          {% for index in indexes %}
+          <option value="{{ index.name }}">{{ index.name }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+  </div>
+</form>
+
 {% endblock %}
