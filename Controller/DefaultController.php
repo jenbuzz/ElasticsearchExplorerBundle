@@ -16,7 +16,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function searchAction($index = false, $searchterm = false)
+    public function searchAction($index = false, $type = false, $searchterm = false)
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
         $arrIndexes = $objElasticsearchManager->getIndexStats();
@@ -28,7 +28,7 @@ class DefaultController extends Controller
 
         return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
             'searchindex' => $index,
-            'searchtype' => '', 
+            'searchtype' => $type, 
             'searchterm' => $searchterm,
             'indexes' => $arrIndexes,
             'types' => $arrTypes,
