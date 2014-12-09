@@ -22,4 +22,22 @@ class ElasticsearchManager
 
         return $arrIndexes;
     }
+
+    public function getIndexMappingTypes($index)
+    {
+        $client = new \Elasticsearch\Client();
+        $objIndexes = $client->indices();
+        $arrMappings = $objIndexes->getMapping(array('index'=>$index));
+
+        $arrMappingTypes = array();
+        if (isset($arrMappings[$index]['mappings']) && !empty($arrMappings[$index]['mappings'])) {
+            foreach ($arrMappings[$index]['mappings'] AS $typeKey => $typeValue) {
+                $arrMappingTypes[] = array(
+                    'name' => $typeKey,
+                );
+            }
+        }
+
+        return $arrMappingTypes;
+    }
 }

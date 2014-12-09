@@ -16,6 +16,18 @@
       </label>
     </div>
   </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Select type:
+        <select>
+          {% for type in types %}
+          <option value="{{ type.name }}"{% if searchtype==type.name %} selected{% endif %}>{{ type.name }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+  </div>
 </form>
 
 {% endblock %}
