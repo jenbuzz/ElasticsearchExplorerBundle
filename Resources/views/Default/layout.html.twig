@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block title %}{% endblock %}</title>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
 
-    {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/normalize.css' filter='cssrewrite' %}
-      <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
-    {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/foundation.min.css' filter='cssrewrite' %}
-      <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
-    {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/icons/foundation-icons.css' filter='cssrewrite' %}
-      <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
-  </head>
-  <body>
-    <div class="contain-to-grid sticky">
-      <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-        <section class="top-bar-section">
-          <ul class="left">
-            <li><a href="{{ path('dan_lyn_elasticsearch_explorer_start') }}">Home</a></li>
-            <li><a href="{{ path('dan_lyn_elasticsearch_explorer_search') }}">Search</a></li>
-          </ul>
-        </section>
-      </nav>
-    </div>
+        {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/normalize.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/foundation.min.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/icons/foundation-icons.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    </head>
+    <body>
+        <div class="contain-to-grid sticky">
+            <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+                <section class="top-bar-section">
+                    <ul class="left">
+                        <li><a href="{{ path('dan_lyn_elasticsearch_explorer_start') }}">Home</a></li>
+                        <li><a href="{{ path('dan_lyn_elasticsearch_explorer_search') }}">Search</a></li>
+                    </ul>
+                </section>
+            </nav>
+        </div>
 
-    <div class="content">
-      {% block content %}{% endblock %}
-    </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
 
-    {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.js' %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.cookie.js' %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/modernizr.js' %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/placeholder.js' %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/fastclick.js' %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/foundation.min.js' %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-  </body>
+        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.cookie.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/modernizr.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/placeholder.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/fastclick.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/foundation.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    </body>
 </html>

@@ -3,21 +3,21 @@
 {% block title 'ElasticsearchExplorer' %}
 
 {% block content %}
-  {% for index in indexes %}
-    <div class="row">
-      <div class="large-6 columns">
-        <a href="{{ path('dan_lyn_elasticsearch_explorer_search_index', {index: 'nfl'}) }}"><h2>{{ index.name }}</h2></a>
-        <table>
-          <tr>
-            <td><strong>Total docs</strong></td>
-            <td>{{ index.total_docs }}</td>
-          </tr>
-          <tr>
-            <td><strong>Total size</strong></td>
-            <td>{{ index.total_size }}</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  {% endfor %}
+    {% for index in indexes %}
+        <div class="row">
+            <div class="large-6 columns">
+                <a href="{{ path('dan_lyn_elasticsearch_explorer_search_index', {index: 'nfl'}) }}"><h2>{{ index.name }}</h2></a>
+                <table>
+                    <tr>
+                        <td><strong>Total docs</strong></td>
+                        <td>{{ index.total_docs }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total size</strong></td>
+                        <td>{{ index.total_size }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
