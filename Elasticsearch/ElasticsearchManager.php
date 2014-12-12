@@ -6,38 +6,48 @@ class ElasticsearchManager
 {
     public function getIndexStats()
     {
-        $client = new \Elasticsearch\Client();
-        $objIndexes = $client->indices();
-        $arrStats = $objIndexes->stats();
-        $arrIndexesStats = $arrStats['indices'];
+        try {
+            $client = new \Elasticsearch\Client();
+            $objIndexes = $client->indices();
+            $arrStats = $objIndexes->stats();
+            $arrIndexesStats = $arrStats['indices'];
 
-        $arrIndexes = array();
-        foreach ($arrIndexesStats AS $indexKey => $indexValues) {
-          $arrIndexes[] = array(
-            'name' => $indexKey,
-            'total_docs' => $indexValues['total']['docs']['count'],
-            'total_size' => $indexValues['total']['store']['size_in_bytes'],
-          );
+            $arrIndexes = array();
+            foreach ($arrIndexesStats AS $indexKey => $indexValues) {
+                $arrIndexes[] = array(
+                    'name' => $indexKey,
+                    'total_docs' => $indexValues['total']['docs']['count'],
+                    'total_size' => $indexValues['total']['store']['size_in_bytes'],
+                );
+            }
+
+            return $arrIndexes;
+
+        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
+            return array();
         }
-
-        return $arrIndexes;
     }
 
     public function getIndexMappingTypes($index)
     {
-        $client = new \Elasticsearch\Client();
-        $objIndexes = $client->indices();
-        $arrMappings = $objIndexes->getMapping(array('index'=>$index));
+        try {
+            $client = new \Elasticsearch\Client();
+            $objIndexes = $client->indices();
+            $arrMappings = $objIndexes->getMapping(array('index'=>$index));
 
-        $arrMappingTypes = array();
-        if (isset($arrMappings[$index]['mappings']) && !empty($arrMappings[$index]['mappings'])) {
-            foreach ($arrMappings[$index]['mappings'] AS $typeKey => $typeValue) {
-                $arrMappingTypes[] = array(
-                    'name' => $typeKey,
-                );
+            $arrMappingTypes = array();
+            if (isset($arrMappings[$index]['mappings']) && !empty($arrMappings[$index]['mappings'])) {
+                foreach ($arrMappings[$index]['mappings'] AS $typeKey => $typeValue) {
+                    $arrMappingTypes[] = array(
+                        'name' => $typeKey,
+                    );
+                }
             }
-        }
 
-        return $arrMappingTypes;
+            return $arrMappingTypes;
+
+        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
+            return array();
+        }
     }
 }
