@@ -18,6 +18,16 @@ class DefaultController extends Controller
 
     public function searchAction($index = false, $type = false, $searchterm = false)
     {
+        if (!empty($this->get('request')->query->get('searchterm'))) {
+            $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
+                'index' => $index,
+                'type' => '2013',
+                'searchterm' => $this->get('request')->query->get('searchterm'),
+            ));
+
+            return $this->redirect($url);
+        }
+
         $objElasticsearchManager = $this->get('elasticsearch_manager');
         $arrIndexes = $objElasticsearchManager->getIndexStats();
 
