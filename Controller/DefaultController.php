@@ -16,12 +16,12 @@ class DefaultController extends Controller
         ));
     }
 
-    public function searchAction($index = false, $type = false, $searchterm = false)
+    public function searchAction($searchindex = false, $searchtype = false, $searchterm = false)
     {
         if (!empty($this->get('request')->query->get('searchterm'))) {
             $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
-                'index' => $index,
-                'type' => '2013',
+                'searchindex' => $searchindex,
+                'searchtype' => $searchtype,
                 'searchterm' => $this->get('request')->query->get('searchterm'),
             ));
 
@@ -32,13 +32,13 @@ class DefaultController extends Controller
         $arrIndexes = $objElasticsearchManager->getIndexStats();
 
         $arrTypes = array();
-        if ($index) {
-            $arrTypes = $objElasticsearchManager->getIndexMappingTypes($index);
+        if ($searchindex) {
+            $arrTypes = $objElasticsearchManager->getIndexMappingTypes($searchindex);
         }
 
         return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
-            'searchindex' => $index,
-            'searchtype' => $type, 
+            'searchindex' => $searchindex,
+            'searchtype' => $searchtype, 
             'searchterm' => $searchterm,
             'indexes' => $arrIndexes,
             'types' => $arrTypes,

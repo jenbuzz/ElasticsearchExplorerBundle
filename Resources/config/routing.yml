@@ -7,13 +7,13 @@ dan_lyn_elasticsearch_explorer_search:
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
 
 dan_lyn_elasticsearch_explorer_search_index:
-    path:     /elasticsearchexplorer/search/{index}/
+    path:     /elasticsearchexplorer/search/{searchindex}/
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
 
 dan_lyn_elasticsearch_explorer_search_type:
-    path:     /elasticsearchexplorer/search/{index}/{type}/
+    path:     /elasticsearchexplorer/search/{searchindex}/{searchtype}/
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
 
 dan_lyn_elasticsearch_explorer_search_term:
-    path:     /elasticsearchexplorer/search/{index}/{type}/{searchterm}/
+    path:     /elasticsearchexplorer/search/{searchindex}/{searchtype}/{searchterm}/
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
