@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row{% if searchindex == false %} invisible{% endif %}">
         <div class="large-12 columns">
             <label>Select type:
                 <select>
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-12 columns">
             <label>Search for:
                 <input name="searchterm" type="text" />
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-12 columns">
             <input class="button" type="submit" value="Start search!" />
         </div>
