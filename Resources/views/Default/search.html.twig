@@ -32,7 +32,7 @@
     <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-12 columns">
             <label>Search for:
-                <input name="searchterm" type="text" />
+                <input name="searchterm" type="text" value="{% if searchterm %}{{ searchterm }}{% endif %}" />
             </label>
         </div>
     </div>
