@@ -18,7 +18,7 @@ class DefaultController extends Controller
 
     public function searchAction($searchindex = false, $searchtype = false, $searchterm = false)
     {
-        if (!empty($this->get('request')->query->get('searchterm'))) {
+        if ($searchindex && $searchtype && !empty($this->get('request')->query->get('searchterm'))) {
             $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
