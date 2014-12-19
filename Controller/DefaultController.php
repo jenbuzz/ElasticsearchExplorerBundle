@@ -36,12 +36,18 @@ class DefaultController extends Controller
             $arrTypes = $objElasticsearchManager->getIndexMappingTypes($searchindex);
         }
 
+        $arrResults = array();
+        if ($searchindex && $searchtype && $searchterm) {
+            $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchterm);
+        }
+
         return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
             'searchindex' => $searchindex,
             'searchtype' => $searchtype, 
             'searchterm' => $searchterm,
             'indexes' => $arrIndexes,
             'types' => $arrTypes,
+            'results' => $arrResults,
         ));
     }
 }

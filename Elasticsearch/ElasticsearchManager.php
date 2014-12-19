@@ -50,4 +50,31 @@ class ElasticsearchManager
             return array();
         }
     }
+
+    public function search($index, $type, $term)
+    {
+        $client = new \Elasticsearch\Client();
+
+        $params = array(
+            'index' => $index,
+            'type' => $type,
+            'body' => array(
+                'query' => array(
+                    'bool' => array(
+                        'should' => array(
+                            'multi_match' => array(
+                                'query' => $term,
+                                'operator' => 'or',
+                                'fields' => array('off'),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        );
+
+        $results = $client->search($params);
+        
+        return $results;
+    }
 }
