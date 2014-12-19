@@ -53,28 +53,35 @@ class ElasticsearchManager
 
     public function search($index, $type, $term)
     {
-        $client = new \Elasticsearch\Client();
+        try {
+            $client = new \Elasticsearch\Client();
 
-        $params = array(
-            'index' => $index,
-            'type' => $type,
-            'body' => array(
-                'query' => array(
-                    'bool' => array(
-                        'should' => array(
-                            'multi_match' => array(
-                                'query' => $term,
-                                'operator' => 'or',
-                                'fields' => array('off'),
+            $params = array(
+                'index' => $index,
+                'type' => $type,
+                'body' => array(
+                    'query' => array(
+                        'bool' => array(
+                            'should' => array(
+                                'multi_match' => array(
+                                    'query' => $term,
+                                    'operator' => 'or',
+                                    'fields' => array('off'),
+                                ),
                             ),
                         ),
                     ),
                 ),
-            ),
-        );
+            );
 
-        $results = $client->search($params);
-        
-        return $results['hits']['hits'];
+            $results = $client->search($params);
+            if (isset($results['hits']) && isset($results['hits']['hits']) && !empty($results['hits']['hits'])) {
+                return $results['hits']['hits'];
+            } else {
+                return array();
+            }
+        } catch (\Elasticsearch\Common\Exceptions\BadRequest400Exception $e) {
+            return array();
+        }
     }
 }
