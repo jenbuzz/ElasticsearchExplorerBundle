@@ -75,6 +75,6 @@ class ElasticsearchManager
 
         $results = $client->search($params);
         
-        return $results;
+        return $results['hits']['hits'];
     }
 }
