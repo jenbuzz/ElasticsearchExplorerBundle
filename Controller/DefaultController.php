@@ -36,6 +36,11 @@ class DefaultController extends Controller
             $arrTypes = $objElasticsearchManager->getIndexMappingTypes($searchindex);
         }
 
+        $arrFields = array();
+        if ($searchindex && $searchtype) {
+            $arrFields = $objElasticsearchManager->getFieldsInIndexType($searchindex, $searchtype);
+        }
+
         $arrResults = array();
         if ($searchindex && $searchtype && $searchterm) {
             $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchterm);
@@ -47,6 +52,7 @@ class DefaultController extends Controller
             'searchterm' => $searchterm,
             'indexes' => $arrIndexes,
             'types' => $arrTypes,
+            'fields' => $arrFields,
             'results' => $arrResults,
         ));
     }

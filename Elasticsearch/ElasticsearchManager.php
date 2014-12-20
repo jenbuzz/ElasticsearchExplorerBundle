@@ -51,6 +51,29 @@ class ElasticsearchManager
         }
     }
 
+    public function getFieldsInIndexType($index, $type)
+    {
+        try {
+            $client = new \Elasticsearch\Client();
+            $objIndexes = $client->indices();
+            $arrMappings = $objIndexes->getMapping(array('index'=>$index));
+
+            $arrFields = array();
+            if (isset($arrMappings[$index]['mappings'][$type]['properties']) && !empty($arrMappings[$index]['mappings'][$type]['properties'])) {
+                foreach ($arrMappings[$index]['mappings'][$type]['properties'] AS $typeKey => $typeValue) {
+                    $arrFields[] = array(
+                        'name' => $typeKey,
+                    );
+                }
+            }
+
+            return $arrFields;
+
+        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
+            return array();
+        }
+    }
+
     public function search($index, $type, $term)
     {
         try {
