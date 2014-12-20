@@ -16,12 +16,13 @@ class DefaultController extends Controller
         ));
     }
 
-    public function searchAction($searchindex = false, $searchtype = false, $searchterm = false)
+    public function searchAction($searchindex = false, $searchtype = false, $searchfield = false, $searchterm = false)
     {
         if ($searchindex && $searchtype && !empty($this->get('request')->query->get('searchterm'))) {
             $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
+                'searchfield'=> $this->get('request')->query->get('searchfield'),
                 'searchterm' => $this->get('request')->query->get('searchterm'),
             ));
 
