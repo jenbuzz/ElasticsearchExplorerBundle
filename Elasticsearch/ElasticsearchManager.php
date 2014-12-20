@@ -74,7 +74,7 @@ class ElasticsearchManager
         }
     }
 
-    public function search($index, $type, $term)
+    public function search($index, $type, $field, $term)
     {
         try {
             $client = new \Elasticsearch\Client();
@@ -89,7 +89,7 @@ class ElasticsearchManager
                                 'multi_match' => array(
                                     'query' => $term,
                                     'operator' => 'or',
-                                    'fields' => array('off'),
+                                    'fields' => array($field),
                                 ),
                             ),
                         ),

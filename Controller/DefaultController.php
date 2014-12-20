@@ -43,8 +43,8 @@ class DefaultController extends Controller
         }
 
         $arrResults = array();
-        if ($searchindex && $searchtype && $searchterm) {
-            $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchterm);
+        if ($searchindex && $searchtype && $searchfield && $searchterm) {
+            $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
         }
 
         return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
