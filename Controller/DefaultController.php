@@ -60,6 +60,6 @@ class DefaultController extends Controller
 
     public function configAction()
     {
-        return new \Symfony\Component\HttpFoundation\Response('config');
+        return $this->render('DanLynElasticsearchExplorerBundle:Default:config.html.twig', array());
     }
 }
