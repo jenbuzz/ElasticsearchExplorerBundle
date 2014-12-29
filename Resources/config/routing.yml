@@ -17,3 +17,7 @@ dan_lyn_elasticsearch_explorer_search_type:
 dan_lyn_elasticsearch_explorer_search_term:
     path:     /elasticsearchexplorer/search/{searchindex}/{searchtype}/{searchfield}/{searchterm}/
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
+
+dan_lyn_elasticsearch_explorer_config:
+    path:     /elasticsearchexplorer/config/
+    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:config }

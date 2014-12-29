@@ -57,4 +57,9 @@ class DefaultController extends Controller
             'results' => $arrResults,
         ));
     }
+
+    public function configAction()
+    {
+        return new \Symfony\Component\HttpFoundation\Response('config');
+    }
 }
