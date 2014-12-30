@@ -35,7 +35,7 @@
     <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-6 columns">
             <label>Search for:
-                <input name="searchterm" type="text" value="{% if searchterm %}{{ searchterm }}{% endif %}" />
+                <input name="searchterm" type="text" value="{% if searchterm %}{{ searchterm }}{% endif %}" required />
             </label>
         </div>
         <div class="large-6 columns">
