@@ -9,7 +9,7 @@
     <div class="row">
         <div class="large-12 columns">
             <label>Select index:
-                <select>
+                <select id="search-select-index">
                 {% for index in indexes %}
                     <option value="{{ index.name }}"{% if searchindex==index.name %} selected{% endif %}>{{ index.name }}</option>
                 {% endfor %}
@@ -21,7 +21,7 @@
     <div class="row{% if searchindex == false %} invisible{% endif %}">
         <div class="large-12 columns">
             <label>Select type:
-                <select>
+                <select id="search-select-type">
                 {% for type in types %}
                     <option value="{{ type.name }}"{% if searchtype==type.name %} selected{% endif %}>{{ type.name }}</option>
                 {% endfor %}
