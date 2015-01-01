@@ -42,7 +42,7 @@
             <label>Search in field:
                 <select name="searchfield">
                     {% for field in fields %}
-                    <option value="{{ field.name }}">{{ field.name }}</option>
+                    <option value="{{ field.name }}"{% if searchfield==field.name %} selected{% endif %}>{{ field.name }}</option>
                     {% endfor %}
                 </select>
             </label>

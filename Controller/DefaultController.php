@@ -50,6 +50,7 @@ class DefaultController extends Controller
         return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
             'searchindex' => $searchindex,
             'searchtype' => $searchtype, 
+            'searchfield' => $searchfield,
             'searchterm' => $searchterm,
             'indexes' => $arrIndexes,
             'types' => $arrTypes,
