@@ -1,13 +1,14 @@
-$('#search-select-index').on('change', function() {
+var doRedirectSearch = function(value) {
   var arrUrl = $(location).attr('href').split('/');
-  if ($(this).val()!=-1 && $(this).val()!=arrUrl[arrUrl.length-2]) {
-    document.location+= $(this).val();
+  if (value!=-1 && value!=arrUrl[arrUrl.length-2]) {
+    document.location+= value;
   }
+};
+
+$('#search-select-index').on('change', function() {
+  doRedirectSearch($(this).val());
 });
 
 $('#search-select-type').on('change', function() {
-  var arrUrl = $(location).attr('href').split('/');
-  if ($(this).val()!=-1 && $(this).val()!=arrUrl[arrUrl.length-2]) {
-    document.location+= $(this).val();
-  }
+  doRedirectSearch($(this).val());
 });
