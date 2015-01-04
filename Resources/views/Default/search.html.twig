@@ -40,7 +40,7 @@
         </div>
         <div class="large-6 columns">
             <label>Search in field:
-                <select name="searchfield" multiple="multiple">
+                <select name="searchfield[]" multiple="multiple">
                     {% for field in fields %}
                     <option value="{{ field.name }}"{% if searchfield==field.name %} selected{% endif %}>{{ field.name }}</option>
                     {% endfor %}
