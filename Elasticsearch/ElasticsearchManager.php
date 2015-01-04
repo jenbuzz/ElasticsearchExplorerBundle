@@ -74,9 +74,15 @@ class ElasticsearchManager
         }
     }
 
-    public function search($index, $type, $field, $term)
+    public function search($index, $type, $fields, $term)
     {
         try {
+            if (strpos($fields, ',') !== false) {
+                $arrFields = explode(',', $fields);
+            } else {
+                $arrFields = array($fields);
+            }
+
             $client = new \Elasticsearch\Client();
 
             $params = array(
@@ -89,7 +95,7 @@ class ElasticsearchManager
                                 'multi_match' => array(
                                     'query' => $term,
                                     'operator' => 'or',
-                                    'fields' => array($field),
+                                    'fields' => $arrFields,
                                 ),
                             ),
                         ),
