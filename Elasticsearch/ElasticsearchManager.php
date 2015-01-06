@@ -1,6 +1,6 @@
 <?php
 
-namespace DanLyn\ElasticsearchExplorerBundle\Elasticsearch; 
+namespace DanLyn\ElasticsearchExplorerBundle\Elasticsearch;
 
 use Symfony\Component\Yaml\Parser;
 
@@ -8,7 +8,7 @@ class ElasticsearchManager
 {
     public function getConfiguration()
     {
-        $arrDefaultConfiguration = array('hosts'=>'');
+        $arrDefaultConfiguration = array('hosts' => '');
 
         try {
             $yamlParser = new Parser();
@@ -18,6 +18,7 @@ class ElasticsearchManager
                 if (isset($arrConfiguration['hosts'])) {
                     $arrConfiguration['hosts'] = array($arrConfiguration['hosts']);
                 }
+
                 return $arrConfiguration;
             }
 
@@ -36,7 +37,7 @@ class ElasticsearchManager
             $arrIndexesStats = $arrStats['indices'];
 
             $arrIndexes = array();
-            foreach ($arrIndexesStats AS $indexKey => $indexValues) {
+            foreach ($arrIndexesStats as $indexKey => $indexValues) {
                 $arrIndexes[] = array(
                     'name' => $indexKey,
                     'total_docs' => $indexValues['total']['docs']['count'],
@@ -45,7 +46,6 @@ class ElasticsearchManager
             }
 
             return $arrIndexes;
-
         } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
             return array();
         }
@@ -56,11 +56,11 @@ class ElasticsearchManager
         try {
             $client = new \Elasticsearch\Client($this->getConfiguration());
             $objIndexes = $client->indices();
-            $arrMappings = $objIndexes->getMapping(array('index'=>$index));
+            $arrMappings = $objIndexes->getMapping(array('index' => $index));
 
             $arrMappingTypes = array();
             if (isset($arrMappings[$index]['mappings']) && !empty($arrMappings[$index]['mappings'])) {
-                foreach ($arrMappings[$index]['mappings'] AS $typeKey => $typeValue) {
+                foreach ($arrMappings[$index]['mappings'] as $typeKey => $typeValue) {
                     $arrMappingTypes[] = array(
                         'name' => $typeKey,
                     );
@@ -68,7 +68,6 @@ class ElasticsearchManager
             }
 
             return $arrMappingTypes;
-
         } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
             return array();
         }
@@ -79,11 +78,11 @@ class ElasticsearchManager
         try {
             $client = new \Elasticsearch\Client($this->getConfiguration());
             $objIndexes = $client->indices();
-            $arrMappings = $objIndexes->getMapping(array('index'=>$index));
+            $arrMappings = $objIndexes->getMapping(array('index' => $index));
 
             $arrFields = array();
             if (isset($arrMappings[$index]['mappings'][$type]['properties']) && !empty($arrMappings[$index]['mappings'][$type]['properties'])) {
-                foreach ($arrMappings[$index]['mappings'][$type]['properties'] AS $typeKey => $typeValue) {
+                foreach ($arrMappings[$index]['mappings'][$type]['properties'] as $typeKey => $typeValue) {
                     $arrFields[] = array(
                         'name' => $typeKey,
                     );
@@ -91,7 +90,6 @@ class ElasticsearchManager
             }
 
             return $arrFields;
-
         } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
             return array();
         }
