@@ -15,6 +15,9 @@ class ElasticsearchManager
 
             $arrConfiguration = $yamlParser->parse(file_get_contents(dirname(__FILE__).'/../Resources/config/elasticsearch.yml'));
             if (!empty($arrConfiguration)) {
+                if (isset($arrConfiguration['hosts'])) {
+                    $arrConfiguration['hosts'] = array($arrConfiguration['hosts']);
+                }
                 return $arrConfiguration;
             }
 
