@@ -30,7 +30,7 @@ class ElasticsearchManager
     public function getIndexStats()
     {
         try {
-            $client = new \Elasticsearch\Client();
+            $client = new \Elasticsearch\Client($this->getConfiguration());
             $objIndexes = $client->indices();
             $arrStats = $objIndexes->stats();
             $arrIndexesStats = $arrStats['indices'];
@@ -54,7 +54,7 @@ class ElasticsearchManager
     public function getIndexMappingTypes($index)
     {
         try {
-            $client = new \Elasticsearch\Client();
+            $client = new \Elasticsearch\Client($this->getConfiguration());
             $objIndexes = $client->indices();
             $arrMappings = $objIndexes->getMapping(array('index'=>$index));
 
@@ -77,7 +77,7 @@ class ElasticsearchManager
     public function getFieldsInIndexType($index, $type)
     {
         try {
-            $client = new \Elasticsearch\Client();
+            $client = new \Elasticsearch\Client($this->getConfiguration());
             $objIndexes = $client->indices();
             $arrMappings = $objIndexes->getMapping(array('index'=>$index));
 
@@ -106,7 +106,7 @@ class ElasticsearchManager
                 $arrFields = array($fields);
             }
 
-            $client = new \Elasticsearch\Client();
+            $client = new \Elasticsearch\Client($this->getConfiguration());
 
             $params = array(
                 'index' => $index,
