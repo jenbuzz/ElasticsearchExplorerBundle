@@ -73,6 +73,11 @@ class DefaultController extends Controller
 
     public function configAction()
     {
-        return $this->render('DanLynElasticsearchExplorerBundle:Default:config.html.twig', array());
+        $objElasticsearchManager = $this->get('elasticsearch_manager');
+        $arrConfiguration = $objElasticsearchManager->getConfiguration();
+
+        return $this->render('DanLynElasticsearchExplorerBundle:Default:config.html.twig', array(
+            'hosts' => $arrConfiguration['hosts'],
+        ));
     }
 }

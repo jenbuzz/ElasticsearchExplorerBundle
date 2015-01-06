@@ -3,5 +3,16 @@
 {% block title 'ElasticsearchExplorer: Configuration' %}
 
 {% block content %}
-    <span>Configuration</span>
+    <div class="row">
+        <div class="large-6 columns">
+            <h2>Configuration</h2>
+            <table>
+                <tbody>
+                {% if hosts %}
+                    <tr><td><strong>Host</strong></td><td>{{ hosts }}</td></tr>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

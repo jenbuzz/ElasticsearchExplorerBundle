@@ -2,8 +2,28 @@
 
 namespace DanLyn\ElasticsearchExplorerBundle\Elasticsearch; 
 
+use Symfony\Component\Yaml\Parser;
+
 class ElasticsearchManager
 {
+    public function getConfiguration()
+    {
+        $arrDefaultConfiguration = array('hosts'=>'');
+
+        try {
+            $yamlParser = new Parser();
+
+            $arrConfiguration = $yamlParser->parse(file_get_contents(dirname(__FILE__).'/../Resources/config/elasticsearch.yml'));
+            if (!empty($arrConfiguration)) {
+                return $arrConfiguration;
+            }
+
+            return $arrDefaultConfiguration;
+        } catch (\Exception $e) {
+            return $arrDefaultConfiguration;
+        }
+    }
+
     public function getIndexStats()
     {
         try {
