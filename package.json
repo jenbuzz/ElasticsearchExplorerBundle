@@ -1,0 +1,10 @@
+{
+  "name": "ElasticsearchExplorerBundle",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dan-lyn/ElasticsearchExplorerBundle"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5"
+  }
+}
