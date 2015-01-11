@@ -15,6 +15,11 @@ class ElasticsearchManager
         } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {}
     }
 
+    /**
+     * Get the configuration set in elasticsearch.yml as an array.
+     *
+     * @return array arrConfiguration
+     */
     public function getConfiguration()
     {
         $arrDefaultConfiguration = array('hosts' => '');
@@ -37,6 +42,11 @@ class ElasticsearchManager
         }
     }
 
+    /**
+     * Get the current indexes on the host with some statistics.
+     *
+     * @return array arrIndexes
+     */
     public function getIndexStats()
     {
         if ($this->client) {
@@ -59,6 +69,13 @@ class ElasticsearchManager
         }
     }
 
+    /**
+     * Get the types in the specified index.
+     *
+     * @param string $index
+     *
+     * @return array $arrMappingTypes
+     */
     public function getIndexMappingTypes($index)
     {
         if ($this->client) {
@@ -80,6 +97,14 @@ class ElasticsearchManager
         }
     }
 
+    /**
+     * Get the fields in the specified type.
+     *
+     * @param string $index
+     * @param string $type
+     *
+     * @return array $arrFields
+     */
     public function getFieldsInIndexType($index, $type)
     {
         if ($this->client) {
@@ -101,6 +126,16 @@ class ElasticsearchManager
         }
     }
 
+    /**
+     * Execute a search for a term in the specified fields, index, and type.
+     *
+     * @param string $index
+     * @param string $type
+     * @param string $fields
+     * @param string $term
+     *
+     * @return array $results
+     */
     public function search($index, $type, $fields, $term)
     {
         if ($this->client) {
