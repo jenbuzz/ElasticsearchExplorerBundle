@@ -3,7 +3,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
-      build: {
+      main: {
+        src: 'Resources/public/js/main.js',
+        dest: 'Resources/public/js/main.min.js'
+      },
+      search: {
         src: 'Resources/public/js/search.js',
         dest: 'Resources/public/js/search.min.js'
       }
