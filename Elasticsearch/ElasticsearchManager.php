@@ -39,9 +39,8 @@ class ElasticsearchManager
 
     public function getIndexStats()
     {
-        try {
-            $client = new \Elasticsearch\Client($this->getConfiguration());
-            $objIndexes = $client->indices();
+        if ($this->client) {
+            $objIndexes = $this->client->indices();
             $arrStats = $objIndexes->stats();
             $arrIndexesStats = $arrStats['indices'];
 
@@ -55,16 +54,15 @@ class ElasticsearchManager
             }
 
             return $arrIndexes;
-        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
+        } else {
             return array();
         }
     }
 
     public function getIndexMappingTypes($index)
     {
-        try {
-            $client = new \Elasticsearch\Client($this->getConfiguration());
-            $objIndexes = $client->indices();
+        if ($this->client) {
+            $objIndexes = $this->client->indices();
             $arrMappings = $objIndexes->getMapping(array('index' => $index));
 
             $arrMappingTypes = array();
@@ -77,16 +75,15 @@ class ElasticsearchManager
             }
 
             return $arrMappingTypes;
-        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
+        } else {
             return array();
         }
     }
 
     public function getFieldsInIndexType($index, $type)
     {
-        try {
-            $client = new \Elasticsearch\Client($this->getConfiguration());
-            $objIndexes = $client->indices();
+        if ($this->client) {
+            $objIndexes = $this->client->indices();
             $arrMappings = $objIndexes->getMapping(array('index' => $index));
 
             $arrFields = array();
@@ -99,7 +96,7 @@ class ElasticsearchManager
             }
 
             return $arrFields;
-        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
+        } else {
             return array();
         }
     }
@@ -112,8 +109,6 @@ class ElasticsearchManager
             } else {
                 $arrFields = array($fields);
             }
-
-            $client = new \Elasticsearch\Client($this->getConfiguration());
 
             $params = array(
                 'index' => $index,
@@ -133,7 +128,7 @@ class ElasticsearchManager
                 ),
             );
 
-            $results = $client->search($params);
+            $results = $this->client->search($params);
             if (isset($results['hits']) && isset($results['hits']['hits']) && !empty($results['hits']['hits'])) {
                 return $results['hits']['hits'];
             } else {
