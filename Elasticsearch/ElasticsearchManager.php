@@ -6,6 +6,15 @@ use Symfony\Component\Yaml\Parser;
 
 class ElasticsearchManager
 {
+    protected $client = false;
+
+    public function __construct()
+    {
+        try {
+            $this->client = new \Elasticsearch\Client($this->getConfiguration());
+        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {}
+    }
+
     public function getConfiguration()
     {
         $arrDefaultConfiguration = array('hosts' => '');
