@@ -12,7 +12,8 @@ class ElasticsearchManager
     {
         try {
             $this->client = new \Elasticsearch\Client($this->getConfiguration());
-        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {}
+        } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
+        }
     }
 
     /**
