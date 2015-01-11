@@ -103,38 +103,42 @@ class ElasticsearchManager
 
     public function search($index, $type, $fields, $term)
     {
-        try {
-            if (strpos($fields, ',') !== false) {
-                $arrFields = explode(',', $fields);
-            } else {
-                $arrFields = array($fields);
-            }
+        if ($this->client) {
+            try {
+                if (strpos($fields, ',') !== false) {
+                    $arrFields = explode(',', $fields);
+                } else {
+                    $arrFields = array($fields);
+                }
 
-            $params = array(
-                'index' => $index,
-                'type' => $type,
-                'body' => array(
-                    'query' => array(
-                        'bool' => array(
-                            'should' => array(
-                                'multi_match' => array(
-                                    'query' => $term,
-                                    'operator' => 'or',
-                                    'fields' => $arrFields,
+                $params = array(
+                    'index' => $index,
+                    'type' => $type,
+                    'body' => array(
+                        'query' => array(
+                            'bool' => array(
+                                'should' => array(
+                                    'multi_match' => array(
+                                        'query' => $term,
+                                        'operator' => 'or',
+                                        'fields' => $arrFields,
+                                    ),
                                 ),
                             ),
                         ),
                     ),
-                ),
-            );
+                );
 
-            $results = $this->client->search($params);
-            if (isset($results['hits']) && isset($results['hits']['hits']) && !empty($results['hits']['hits'])) {
-                return $results['hits']['hits'];
-            } else {
+                $results = $this->client->search($params);
+                if (isset($results['hits']) && isset($results['hits']['hits']) && !empty($results['hits']['hits'])) {
+                    return $results['hits']['hits'];
+                } else {
+                    return array();
+                }
+            } catch (\Elasticsearch\Common\Exceptions\BadRequest400Exception $e) {
                 return array();
             }
-        } catch (\Elasticsearch\Common\Exceptions\BadRequest400Exception $e) {
+        } else {
             return array();
         }
     }
