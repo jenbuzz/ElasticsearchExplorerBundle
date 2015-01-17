@@ -20,15 +20,15 @@ class DefaultController extends Controller
     {
         if ($searchindex && $searchtype && !empty($this->get('request')->query->get('searchfield'))  && !empty($this->get('request')->query->get('searchterm'))) {
             $strSearchfield = "";
-            foreach ($this->get('request')->query->get('searchfield') AS $field) {
-                $strSearchfield.= $field.',';
+            foreach ($this->get('request')->query->get('searchfield') as $field) {
+                $strSearchfield .= $field.',';
             }
             $strSearchfield = rtrim($strSearchfield, ',');
 
             $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
-                'searchfield'=> $strSearchfield,
+                'searchfield' => $strSearchfield,
                 'searchterm' => $this->get('request')->query->get('searchterm'),
             ));
 
@@ -61,7 +61,7 @@ class DefaultController extends Controller
 
         return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
             'searchindex' => $searchindex,
-            'searchtype' => $searchtype, 
+            'searchtype' => $searchtype,
             'searchfield' => $searchfield,
             'searchterm' => $searchterm,
             'indexes' => $arrIndexes,
