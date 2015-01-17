@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
+    /**
+     * Home.
+     */
     public function indexAction()
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
@@ -16,8 +19,12 @@ class DefaultController extends Controller
         ));
     }
 
+    /**
+     * Search.
+     */
     public function searchAction($searchindex = false, $searchtype = false, $searchfield = false, $searchterm = false)
     {
+        // Redirect to a pretty url after search submit.
         if ($searchindex && $searchtype && !empty($this->get('request')->query->get('searchfield'))  && !empty($this->get('request')->query->get('searchterm'))) {
             $strSearchfield = "";
             foreach ($this->get('request')->query->get('searchfield') as $field) {
@@ -35,19 +42,23 @@ class DefaultController extends Controller
             return $this->redirect($url);
         }
 
+        // Get indexes.
         $objElasticsearchManager = $this->get('elasticsearch_manager');
         $arrIndexes = $objElasticsearchManager->getIndexStats();
 
+        // Get types.
         $arrTypes = array();
         if ($searchindex) {
             $arrTypes = $objElasticsearchManager->getIndexMappingTypes($searchindex);
         }
 
+        // Get fields.
         $arrFields = array();
         if ($searchindex && $searchtype) {
             $arrFields = $objElasticsearchManager->getFieldsInIndexType($searchindex, $searchtype);
         }
 
+        // Get results.
         $arrResults = array();
         if ($searchindex && $searchtype && $searchfield && $searchterm) {
             $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
@@ -71,6 +82,9 @@ class DefaultController extends Controller
         ));
     }
 
+    /**
+     * Configuration.
+     */
     public function configAction()
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
