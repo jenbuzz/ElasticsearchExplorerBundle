@@ -2,6 +2,15 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    watch: {
+      scripts: {
+        files: ['Resources/public/js/main.js', 'Resources/public/js/search.js'],
+        tasks: ['minify'],
+        options: {
+          spawn: false
+        }
+      }
+    },
     uglify: {
       main: {
         src: 'Resources/public/js/main.js',
@@ -15,6 +24,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('minify', ['uglify']);
 
