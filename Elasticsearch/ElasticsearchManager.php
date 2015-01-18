@@ -190,9 +190,13 @@ class ElasticsearchManager
      */
     public function getPlugins()
     {
-        $arrStatsCluster = $this->client->cluster()->stats();
-        $arrPlugins = $arrStatsCluster['nodes']['plugins'];
+        if ($this->isConnected) {
+            $arrStatsCluster = $this->client->cluster()->stats();
+            $arrPlugins = $arrStatsCluster['nodes']['plugins'];
 
-        return $arrPlugins;
+            return $arrPlugins;
+        } else {
+            return array();
+        }
     }
 }
