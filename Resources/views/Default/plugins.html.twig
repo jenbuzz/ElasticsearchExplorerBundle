@@ -10,7 +10,7 @@
                 <tbody>
                 {% for plugin in plugins %}
                     <tr>
-                        <td><a href="http://{{ hosts }}{{ plugin.url }}"><strong>{{ plugin.name }}</strong></a></td>
+                        <td><a href="http://{{ hosts }}{{ plugin.url }}" target="_blank"><strong>{{ plugin.name }}</strong></a></td>
                         <td>{{ plugin.description }}</td>
                     </tr>
                 {% endfor %}
