@@ -95,6 +95,9 @@ class DefaultController extends Controller
         ));
     }
 
+    /**
+     * Plugins.
+     */
     public function pluginsAction()
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');

@@ -179,6 +179,11 @@ class ElasticsearchManager
         }
     }
 
+    /**
+     * Get plugins installed on specified elasticsearch node.
+     *
+     * @return array $arrPlugins
+     */
     public function getPlugins()
     {
         $arrStatsCluster = $this->client->cluster()->stats();
