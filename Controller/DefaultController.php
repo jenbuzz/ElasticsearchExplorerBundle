@@ -94,4 +94,14 @@ class DefaultController extends Controller
             'hosts' => $arrConfiguration['hosts'],
         ));
     }
+
+    public function pluginsAction()
+    {
+        $objElasticsearchManager = $this->get('elasticsearch_manager');
+        $arrPlugins = $objElasticsearchManager->getPlugins();
+
+        return $this->render('DanLynElasticsearchExplorerBundle:Default:plugins.html.twig', array(
+            'plugins' => $arrPlugins,
+        ));
+    }
 }

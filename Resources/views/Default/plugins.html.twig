@@ -1,0 +1,21 @@
+{% extends 'DanLynElasticsearchExplorerBundle:Default:layout.html.twig' %}
+
+{% block title 'ElasticsearchExplorer: Plugins' %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-6 columns">
+            <h2>Plugins</h2>
+            <table>
+                <tbody>
+                {% for plugin in plugins %}
+                    <tr>
+                        <td><a href="{{ plugin.url }}"><strong>{{ plugin.name }}</strong></a></td>
+                        <td>{{ plugin.description }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
