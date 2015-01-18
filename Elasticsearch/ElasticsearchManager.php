@@ -7,11 +7,15 @@ use Symfony\Component\Yaml\Parser;
 class ElasticsearchManager
 {
     protected $client = false;
+    protected $isConnected = false;
 
     public function __construct()
     {
         try {
             $this->client = new \Elasticsearch\Client($this->getConfiguration());
+            if ($this->client->ping()) {
+                $this->isConnected = true;
+            }
         } catch (\Elasticsearch\Common\Exceptions\Curl\CouldNotConnectToHost $e) {
         }
     }
@@ -50,7 +54,7 @@ class ElasticsearchManager
      */
     public function getIndexStats()
     {
-        if ($this->client) {
+        if ($this->isConnected) {
             $objIndexes = $this->client->indices();
             $arrStats = $objIndexes->stats();
             $arrIndexesStats = $arrStats['indices'];
@@ -79,7 +83,7 @@ class ElasticsearchManager
      */
     public function getIndexMappingTypes($index)
     {
-        if ($this->client) {
+        if ($this->isConnected) {
             $objIndexes = $this->client->indices();
             $arrMappings = $objIndexes->getMapping(array('index' => $index));
 
@@ -108,7 +112,7 @@ class ElasticsearchManager
      */
     public function getFieldsInIndexType($index, $type)
     {
-        if ($this->client) {
+        if ($this->isConnected) {
             $objIndexes = $this->client->indices();
             $arrMappings = $objIndexes->getMapping(array('index' => $index));
 
@@ -139,7 +143,7 @@ class ElasticsearchManager
      */
     public function search($index, $type, $fields, $term)
     {
-        if ($this->client) {
+        if ($this->isConnected) {
             try {
                 if (strpos($fields, ',') !== false) {
                     $arrFields = explode(',', $fields);
