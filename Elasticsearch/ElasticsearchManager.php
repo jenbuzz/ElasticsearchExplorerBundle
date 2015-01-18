@@ -178,4 +178,12 @@ class ElasticsearchManager
             return array();
         }
     }
+
+    public function getPlugins()
+    {
+        $arrStatsCluster = $this->client->cluster()->stats();
+        $arrPlugins = $arrStatsCluster['nodes']['plugins'];
+
+        return $arrPlugins;
+    }
 }
