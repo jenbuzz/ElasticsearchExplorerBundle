@@ -21,3 +21,7 @@ dan_lyn_elasticsearch_explorer_search_term:
 dan_lyn_elasticsearch_explorer_config:
     path:     /elasticsearchexplorer/config/
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:config }
+
+dan_lyn_elasticsearch_explorer_plugins:
+    path:     /elasticsearchexplorer/plugins/
+    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:plugins }
