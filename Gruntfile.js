@@ -20,11 +20,19 @@ module.exports = function(grunt) {
         src: 'Resources/public/js/search.js',
         dest: 'Resources/public/js/search.min.js'
       }
+    },
+    compass: {
+      dist: {
+        options: {
+          config: 'config.rb'
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-compass');
 
   grunt.registerTask('minify', ['uglify']);
 
