@@ -102,11 +102,16 @@ class DefaultController extends Controller
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
         $arrPlugins = $objElasticsearchManager->getPlugins();
+
+        $host = '';
         $arrConfiguration = $objElasticsearchManager->getConfiguration();
+        if (is_array($arrConfiguration) && isset($arrConfiguration['hosts']) && !empty($arrConfiguration['hosts'])) {
+            $host = $arrConfiguration['hosts'][0];
+        }
 
         return $this->render('DanLynElasticsearchExplorerBundle:Default:plugins.html.twig', array(
             'plugins' => $arrPlugins,
-            'hosts' => $arrConfiguration['hosts'][0],
+            'hosts' => $host,
         ));
     }
 }
