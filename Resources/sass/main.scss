@@ -5,8 +5,10 @@
 .top-bar-section {
   ul {
     li {
-      &:hover {
-        background-color: #000;
+      a {
+        &:hover {
+          background-color: #444 !important;
+        }
       }
     }
   }
