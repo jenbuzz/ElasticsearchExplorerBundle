@@ -1,3 +1,13 @@
 .search-row {
   margin-bottom: 20px;
 }
+
+.top-bar-section {
+  ul {
+    li {
+      &:hover {
+        background-color: #000;
+      }
+    }
+  }
+}
