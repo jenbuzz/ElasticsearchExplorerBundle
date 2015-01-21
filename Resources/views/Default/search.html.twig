@@ -35,7 +35,7 @@
     <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-12 columns">
             <label>Search in field:
-                <select name="searchfield[]" multiple="multiple">
+                <select class="searchfield" name="searchfield[]" multiple="multiple">
                     {% for field in fields %}
                     <option value="{{ field.name }}"{% if field.name in searchfield %} selected{% endif %}>{{ field.name }}</option>
                     {% endfor %}
