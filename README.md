@@ -61,6 +61,13 @@ assetic:
             output: icons/foundation-icons.eot
 ```
 
+##Configuration
+
+In Resources/config/elasticsearch.yml it is possible to configure to hostname of the Elasticsearch instance:
+```
+hosts: "localhost:9200"
+```
+
 ##License
 
 ElasticsearchExplorerBundle is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
