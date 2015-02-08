@@ -14,4 +14,13 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertTrue($crawler->filter('html:contains("ElasticsearchExplorer")')->count() > 0);
     }
+
+    public function testConfig()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/elasticsearchexplorer/config/');
+
+        $this->assertTrue($crawler->filter('html:contains("Host")')->count() > 0);
+    }
 }
