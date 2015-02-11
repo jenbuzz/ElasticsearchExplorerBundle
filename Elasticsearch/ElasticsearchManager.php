@@ -121,6 +121,7 @@ class ElasticsearchManager
                 foreach ($arrMappings[$index]['mappings'][$type]['properties'] as $typeKey => $typeValue) {
                     $arrFields[] = array(
                         'name' => $typeKey,
+                        'type' => $typeValue['type'],
                     );
                 }
             }

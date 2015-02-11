@@ -43,8 +43,13 @@
             </label>
 
             <div id="modalFields" class="reveal-modal" data-reveal>
-                <h2>Awesome. I have it.</h2>
-                 <a class="close-reveal-modal">&#215;</a>
+                <h5>Fields</h5>
+                <table>
+                    {% for field in fields %}
+                    <tr><td>{{ field.name }}</td><td>{{ field.type }}</td></tr>
+                    {% endfor %}
+                </table>
+                <a class="close-reveal-modal">&#215;</a>
             </div>
         </div>
     </div>
