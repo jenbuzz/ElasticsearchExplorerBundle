@@ -9,3 +9,7 @@
 .top-bar-section ul li a:hover {
   background-color: #444 !important;
 }
+
+.reveal-modal {
+  width: 220px;
+}
