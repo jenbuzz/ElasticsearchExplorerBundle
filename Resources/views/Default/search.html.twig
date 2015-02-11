@@ -34,13 +34,18 @@
 
     <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-12 columns">
-            <label>Search in field:
+            <label>Search in field: <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
                 <select class="searchfield" name="searchfield[]" multiple="multiple">
                     {% for field in fields %}
                     <option value="{{ field.name }}"{% if field.name in searchfield %} selected{% endif %}>{{ field.name }}</option>
                     {% endfor %}
                 </select>
             </label>
+
+            <div id="modalFields" class="reveal-modal" data-reveal>
+                <h2>Awesome. I have it.</h2>
+                 <a class="close-reveal-modal">&#215;</a>
+            </div>
         </div>
     </div>
 
