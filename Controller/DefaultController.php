@@ -32,6 +32,7 @@ class DefaultController extends Controller
             }
             $strSearchfield = rtrim($strSearchfield, ',');
 
+            // Generate redirect url.
             $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
@@ -63,6 +64,7 @@ class DefaultController extends Controller
         if ($searchindex && $searchtype && $searchfield && $searchterm) {
             $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
 
+            // Create array of searchfields.
             if (strpos($searchfield, ',') !== false) {
                 $searchfield = explode(',', $searchfield);
             } else {
@@ -103,6 +105,7 @@ class DefaultController extends Controller
         $objElasticsearchManager = $this->get('elasticsearch_manager');
         $arrPlugins = $objElasticsearchManager->getPlugins();
 
+        // Get the host of elasticsearch.
         $host = '';
         $arrConfiguration = $objElasticsearchManager->getConfiguration();
         if (is_array($arrConfiguration) && isset($arrConfiguration['hosts']) && !empty($arrConfiguration['hosts'])) {
