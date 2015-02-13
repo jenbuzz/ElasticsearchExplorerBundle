@@ -9,18 +9,16 @@ class DefaultControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
+        $client->request('GET', '/elasticsearchexplorer/');
 
-        $crawler = $client->request('GET', '/elasticsearchexplorer/');
-
-        $this->assertTrue($crawler->filter('html:contains("ElasticsearchExplorer")')->count() > 0);
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
     public function testConfig()
     {
         $client = static::createClient();
+        $client->request('GET', '/elasticsearchexplorer/config/');
 
-        $crawler = $client->request('GET', '/elasticsearchexplorer/config/');
-
-        $this->assertTrue($crawler->filter('html:contains("Host")')->count() > 0);
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 }
