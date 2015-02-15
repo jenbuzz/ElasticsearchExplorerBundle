@@ -9,6 +9,9 @@
 .top-bar-section ul li a:hover {
   background-color: #444 !important;
 }
+.top-bar-section ul li a span {
+  margin-right: 4px;
+}
 
 .reveal-modal {
   width: 220px;
