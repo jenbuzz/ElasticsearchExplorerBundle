@@ -14,6 +14,14 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
+    public function testSearch()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/elasticsearchexplorer/search/');
+
+        $this->assertTrue($client->getResponse()->isSuccessful());
+    }
+
     public function testConfig()
     {
         $client = static::createClient();
