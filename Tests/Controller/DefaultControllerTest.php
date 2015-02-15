@@ -29,4 +29,12 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
+
+    public function testPlugins()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/elasticsearchexplorer/plugins/');
+
+        $this->assertTrue($client->getResponse()->isSuccessful());
+    }
 }
