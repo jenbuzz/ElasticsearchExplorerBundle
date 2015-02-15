@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
+    /**
+     * Test Index Page Routing.
+     */
     public function testIndex()
     {
         $client = static::createClient();
@@ -14,6 +17,9 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
+    /**
+     * Test Search Page Routing.
+     */
     public function testSearch()
     {
         $client = static::createClient();
@@ -22,6 +28,9 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
+    /**
+     * Test Config Page Routing.
+     */
     public function testConfig()
     {
         $client = static::createClient();
@@ -30,6 +39,9 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
+    /**
+     * Test Plugins Page Routing.
+     */
     public function testPlugins()
     {
         $client = static::createClient();
