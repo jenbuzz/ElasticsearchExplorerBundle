@@ -68,6 +68,12 @@ In Resources/config/elasticsearch.yml it is possible to configure to hostname of
 hosts: "localhost:9200"
 ```
 
+##Testing
+Run PHPUnit from the root of your Symfony application:
+```
+phpunit -c app/
+```
+
 ##License
 
 ElasticsearchExplorerBundle is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
