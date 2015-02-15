@@ -6,6 +6,9 @@
   height: 80px;
 }
 
+.top-bar-section ul li a {
+  font-size: 0.9rem;
+}
 .top-bar-section ul li a:hover {
   background-color: #444 !important;
 }
