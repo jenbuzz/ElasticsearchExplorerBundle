@@ -45,9 +45,9 @@
             <div id="modalFields" class="reveal-modal" data-reveal>
                 <h5>Fields</h5>
                 <table>
-                    <thead><tr><th><strong>Name</strong></th><th><strong>Type</strong></th></tr></thead>
+                    <thead><tr><th><strong>Name</strong></th><th><strong>Type</strong></th><th>Index</th></tr></thead>
                     {% for field in fields %}
-                    <tr><td>{{ field.name }}</td><td>{{ field.type }}</td></tr>
+                    <tr><td>{{ field.name }}</td><td>{{ field.type }}</td><td>{{ field.index }}</td></tr>
                     {% endfor %}
                 </table>
                 <a class="close-reveal-modal">&#215;</a>

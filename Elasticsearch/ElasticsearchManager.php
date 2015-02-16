@@ -122,6 +122,7 @@ class ElasticsearchManager
                     $arrFields[] = array(
                         'name' => $typeKey,
                         'type' => $typeValue['type'],
+                        'index' => isset($typeValue['index']) ? $typeValue['index'] : '',
                     );
                 }
             }
