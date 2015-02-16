@@ -1,5 +1,5 @@
 #ElasticsearchExplorerBundle
-Elasticsearch status and search functionality in a Symfony2 bundle.
+Elasticsearch status and search functionality in a Symfony2 bundle. This bundle uses the official elasticsearch-php client and the front-end framework ZURB Foundation.
 
 ##Installation
 Add the following snippet to your local projects composer.json file:
