@@ -147,11 +147,7 @@ class ElasticsearchManager
     {
         if ($this->isConnected) {
             try {
-                if (strpos($fields, ',') !== false) {
-                    $arrFields = explode(',', $fields);
-                } else {
-                    $arrFields = array($fields);
-                }
+                $arrFields = $this->convertSearchfieldsToArray($fields);
 
                 $params = array(
                     'index' => $index,
@@ -200,5 +196,16 @@ class ElasticsearchManager
         } else {
             return array();
         }
+    }
+
+    public function convertSearchfieldsToArray($searchfields)
+    {
+        if (strpos($searchfields, ',') !== false) {
+            $arrFields = explode(',', $searchfields);
+        } else {
+            $arrFields = array($searchfields);
+        }
+
+        return $arrFields;
     }
 }
