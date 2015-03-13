@@ -198,6 +198,13 @@ class ElasticsearchManager
         }
     }
 
+    /**
+     * Convert a string of searchfields to an array as expected by the elasticsearch client.
+     *
+     * @param string $searchfields
+     *
+     * @return array $arrFields
+     */
     public function convertSearchfieldsToArray($searchfields)
     {
         if (strpos($searchfields, ',') !== false) {
