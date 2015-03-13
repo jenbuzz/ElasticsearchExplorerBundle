@@ -1,5 +1,5 @@
 #ElasticsearchExplorerBundle
-Elasticsearch status and search functionality in a Symfony2 bundle. This bundle uses the official elasticsearch-php client and the front-end framework ZURB Foundation.
+Elasticsearch status and search functionality as a Symfony2 bundle. This bundle uses the official elasticsearch-php client and the front-end framework ZURB Foundation.
 
 ##Installation
 Add the following snippet to your local projects composer.json file:
@@ -69,7 +69,7 @@ hosts: "localhost:9200"
 ```
 
 ##Testing
-Run PHPUnit from the root of your Symfony application:
+Run PHPUnit from the root of your Symfony application using the following command:
 ```
 phpunit -c app/
 ```
