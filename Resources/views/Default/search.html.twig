@@ -74,13 +74,13 @@
 {% if results %}
     {% for result in results %}
     <div class="row search-row">
-       <div class="large-12 columns">
-           <table>
-           {% for resultSourceKey,resultSource in result._source %}
-               <tr><td><strong>{{ resultSourceKey }}</strong></td><td>{{ resultSource }}</td></tr>
-           {% endfor %}
-           </table>
-       </div>
+        <div class="large-12 columns">
+            <table>
+            {% for resultSourceKey,resultSource in result._source %}
+                <tr><td><strong>{{ resultSourceKey }}</strong></td><td>{{ resultSource }}</td></tr>
+            {% endfor %}
+            </table>
+        </div>
     </div>
     {% endfor %}
 {% endif %}
