@@ -75,7 +75,13 @@
     {% for result in results %}
     <div class="row search-row">
        <div class="large-12 columns">
-       {{ dump(result._source) }} 
+           <table>
+           {% for resultSourceKey,resultSource in result._source %}
+               <tr><td>{{ resultSourceKey }}</td><td>{{ resultSource }}</td></tr>
+           {% endfor %}
+           </table>
+
+           {{ dump(result._source) }} 
        </div>
     </div>
     {% endfor %}
