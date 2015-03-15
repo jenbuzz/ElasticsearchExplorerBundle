@@ -77,7 +77,10 @@
         <div class="large-12 columns">
             <table>
             {% for resultSourceKey,resultSource in result._source %}
-                <tr><td><strong>{{ resultSourceKey }}</strong></td><td>{{ resultSource }}</td></tr>
+                <tr>
+                    <td><strong>{{ resultSourceKey }}</strong></td>
+                    <td>{{ resultSource }}</td>
+                </tr>
             {% endfor %}
             </table>
         </div>
