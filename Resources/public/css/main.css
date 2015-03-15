@@ -1,6 +1,9 @@
 .search-row {
   margin-bottom: 20px;
 }
+.search-row table {
+  width: 100%;
+}
 
 .searchfield {
   height: 80px;
