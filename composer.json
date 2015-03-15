@@ -1,7 +1,7 @@
 {
   "name": "dan-lyn/elasticsearch-explorer-bundle",
   "type": "symfony-bundle",
-  "description": "",
+  "description": "Elasticsearch status and search functionality as a Symfony2 bundle",
   "keywords": ["elasticsearch", "symfony2"],
   "homepage": "https://github.com/dan-lyn/ElasticsearchExplorerBundle/",
   "license" : "MIT",
