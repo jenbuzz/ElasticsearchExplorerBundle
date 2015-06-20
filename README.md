@@ -61,6 +61,14 @@ assetic:
             output: icons/foundation-icons.eot
 ```
 
+Setup language by adding to following snippet to your local config file:
+```
+framework:
+    # ...
+    translator: { fallbacks: [en] }
+    '...
+```
+
 ##Configuration
 
 In Resources/config/elasticsearch.yml it is possible to configure to hostname of the Elasticsearch instance:
