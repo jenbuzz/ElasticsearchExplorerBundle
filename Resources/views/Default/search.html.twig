@@ -8,7 +8,7 @@
 <form>
     <div class="row">
         <div class="large-12 columns">
-            <label>Select index:
+            <label>{% trans %}Select index{% endtrans %}:
                 <select id="search-select-index">
                     <option value="-1">...</option>
                 {% for index in indexes %}
@@ -21,7 +21,7 @@
 
     <div class="row{% if searchindex == false %} invisible{% endif %}">
         <div class="large-12 columns">
-            <label>Select type:
+            <label>{% trans %}Select type{% endtrans %}:
                 <select id="search-select-type">
                     <option value="-1">...</option>
                 {% for type in types %}
@@ -34,7 +34,7 @@
 
     <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-12 columns">
-            <label>Search in field: <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
+            <label>{% trans %}Search in field{% endtrans %}: <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
                 <select class="searchfield" name="searchfield[]" multiple="multiple" required>
                     {% for field in fields %}
                     <option value="{{ field.name }}"{% if field.name in searchfield %} selected{% endif %}>{{ field.name }}</option>
@@ -45,7 +45,7 @@
             <div id="modalFields" class="reveal-modal" data-reveal>
                 <h5>Fields</h5>
                 <table>
-                    <thead><tr><th><strong>Name</strong></th><th><strong>Type</strong></th><th>Index</th></tr></thead>
+                    <thead><tr><th><strong>{% trans %}Name{% endtrans %}</strong></th><th><strong>{% trans %}Type{% endtrans %}</strong></th><th>{% trans %}Index{% endtrans %}</th></tr></thead>
                     {% for field in fields %}
                     <tr><td>{{ field.name }}</td><td>{{ field.type }}</td><td>{{ field.index }}</td></tr>
                     {% endfor %}
@@ -57,7 +57,7 @@
 
     <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-12 columns">
-            <label>Search for:
+            <label>{% trans %}Search for{% endtrans %}:
                 <input name="searchterm" type="text" value="{% if searchterm %}{{ searchterm }}{% endif %}" required />
             </label>
         </div>
@@ -65,7 +65,7 @@
 
     <div class="row{% if searchtype == false %} invisible{% endif %}">
         <div class="large-12 columns">
-            <input class="button" type="submit" value="Start search!" />
+            <input class="button" type="submit" value="{% trans %}Start search{% endtrans %}!" />
         </div>
     </div>
 </form>

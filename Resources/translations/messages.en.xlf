@@ -22,6 +22,54 @@
                 <source>GitHub</source>
                 <target>GitHub</target>
             </trans-unit>
+            <trans-unit id="6">
+                <source>Menu</source>
+                <target>Menu</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Host</source>
+                <target>Host</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Total docs</source>
+                <target>Total docs</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Total size</source>
+                <target>Total size</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Select index</source>
+                <target>Select index</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Select type</source>
+                <target>Select type</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Search in field</source>
+                <target>Search in field</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Type</source>
+                <target>Type</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Index</source>
+                <target>Index</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Search for</source>
+                <target>Search for</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>Start search</source>
+                <target>Start search</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

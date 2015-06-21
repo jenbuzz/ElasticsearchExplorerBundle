@@ -5,12 +5,12 @@
 {% block content %}
     <div class="row">
         <div class="large-6 columns">
-            <h2>Configuration</h2>
+            <h2>{% trans %}Configuration{% endtrans %}</h2>
             <table>
                 <tbody>
                 {% if hosts %}
                     <tr>
-                        <td><strong>Host</strong></td>
+                        <td><strong>{% trans %}Host{% endtrans %}</strong></td>
                         <td>{% for host in hosts %}{{ host }}{% if loop.last == false %} ,{% endif %}{% endfor %}</td>
                     </tr>
                 {% endif %}

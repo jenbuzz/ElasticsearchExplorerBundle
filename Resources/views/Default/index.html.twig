@@ -9,11 +9,11 @@
                 <a href="{{ path('dan_lyn_elasticsearch_explorer_search_index', {searchindex: index.name}) }}"><h2>{{ index.name }}</h2></a>
                 <table>
                     <tr>
-                        <td><strong>Total docs</strong></td>
+                        <td><strong>{% trans %}Total docs{% endtrans %}</strong></td>
                         <td>{{ index.total_docs }}</td>
                     </tr>
                     <tr>
-                        <td><strong>Total size</strong></td>
+                        <td><strong>{% trans %}Total size{% endtrans %}</strong></td>
                         <td>{{ index.total_size }}</td>
                     </tr>
                 </table>
