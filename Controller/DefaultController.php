@@ -86,6 +86,7 @@ class DefaultController extends Controller
     public function configAction()
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
+
         $arrConfiguration = $objElasticsearchManager->getConfiguration();
 
         return $this->render('DanLynElasticsearchExplorerBundle:Default:config.html.twig', array(
@@ -99,9 +100,10 @@ class DefaultController extends Controller
     public function pluginsAction()
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
+
         $arrPlugins = $objElasticsearchManager->getPlugins();
 
-        // Get the host of elasticsearch.
+        // Get the elasticsearch host to enable plugins linking.
         $host = '';
         $arrConfiguration = $objElasticsearchManager->getConfiguration();
         if (is_array($arrConfiguration) && isset($arrConfiguration['hosts']) && !empty($arrConfiguration['hosts'])) {
