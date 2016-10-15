@@ -13,29 +13,15 @@
         {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/bootstrap-theme.min.css' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}">
         {% endstylesheets %}
-        {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/normalize.css' filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}">
-        {% endstylesheets %}
-        {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/foundation.min.css' filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}">
-        {% endstylesheets %}
-        {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/icons/foundation-icons.css' filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}">
-        {% endstylesheets %}
         {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/main.css' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}">
         {% endstylesheets %}
     </head>
     <body>
-        <div class="contain-to-grid sticky">
-            <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-                <ul class="title-area">
-                    <li class="name"></li>
-                    <li class="toggle-topbar menu-icon"><a href="#"><span>{% trans %}Menu{% endtrans %}</span></a></li>
-                </ul>
-
-                <section class="top-bar-section">
-                    <ul class="left">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
                         <li>
                             <a href="{{ path('dan_lyn_elasticsearch_explorer_start') }}">
                                 <span class="fi-home"></span>
@@ -67,11 +53,11 @@
                             </a>
                         </li>
                     </ul>
-                </section>
-            </nav>
-        </div>
+                </div>
+            </div>
+        </nav>
 
-        <div class="content">
+        <div class="container">
             {% block content %}{% endblock %}
         </div>
 
@@ -81,22 +67,7 @@
         {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.cookie.js' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/modernizr.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/placeholder.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/fastclick.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/foundation.min.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
         {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/bootstrap.min.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/main.min.js' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/search.min.js' %}
