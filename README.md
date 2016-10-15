@@ -41,24 +41,6 @@ assetic:
     bundles: ['DanLynElasticsearchExplorerBundle']
 
     # ...
-
-    assets:
-        foundation_icons_woff:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/icons/foundation-icons.woff'
-            output: icons/foundation-icons.woff
-        foundation_icons_ttf:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/icons/foundation-icons.ttf'
-            output: icons/foundation-icons.ttf
-        foundation_icons_svg:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/icons/foundation-icons.svg'
-            output: icons/foundation-icons.svg
-        foundation_icons_eot:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/icons/foundation-icons.eot'
-            output: icons/foundation-icons.eot
 ```
 
 Setup language by adding to following snippet to your local config file:
