@@ -7,6 +7,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/bootstrap.min.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}">
+        {% endstylesheets %}
+        {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/bootstrap-theme.min.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}">
+        {% endstylesheets %}
         {% stylesheets '@DanLynElasticsearchExplorerBundle/Resources/public/css/normalize.css' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}">
         {% endstylesheets %}
@@ -85,6 +91,9 @@
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/foundation.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/bootstrap.min.js' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         {% javascripts '@DanLynElasticsearchExplorerBundle/Resources/public/js/main.min.js' %}
