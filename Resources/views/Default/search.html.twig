@@ -6,8 +6,8 @@
 
 {% if indexes %}
 <form>
-    <div class="row">
-        <div class="large-12 columns">
+    <div>
+        <div class="col-sm-12">
             <label>{% trans %}Select index{% endtrans %}:
                 <select id="search-select-index">
                     <option value="-1">...</option>
@@ -19,8 +19,8 @@
         </div>
     </div>
 
-    <div class="row{% if searchindex == false %} invisible{% endif %}">
-        <div class="large-12 columns">
+    <div class="{% if searchindex == false %}invisible{% endif %}">
+        <div class="col-sm-12">
             <label>{% trans %}Select type{% endtrans %}:
                 <select id="search-select-type">
                     <option value="-1">...</option>
@@ -32,8 +32,8 @@
         </div>
     </div>
 
-    <div class="row{% if searchtype == false %} invisible{% endif %}">
-        <div class="large-12 columns">
+    <div class="{% if searchtype == false %} invisible{% endif %}">
+        <div class="col-sm-12">
             <label>{% trans %}Search in field{% endtrans %}: 
                 <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
                 <select class="searchfield" name="searchfield[]" multiple="multiple" required>
@@ -66,16 +66,16 @@
         </div>
     </div>
 
-    <div class="row{% if searchtype == false %} invisible{% endif %}">
-        <div class="large-12 columns">
+    <div class="{% if searchtype == false %} invisible{% endif %}">
+        <div class="col-sm-12">
             <label>{% trans %}Search for{% endtrans %}:
                 <input name="searchterm" type="text" value="{% if searchterm %}{{ searchterm }}{% endif %}" required />
             </label>
         </div>
     </div>
 
-    <div class="row{% if searchtype == false %} invisible{% endif %}">
-        <div class="large-12 columns">
+    <div class="{% if searchtype == false %} invisible{% endif %}">
+        <div class="col-sm-12">
             <input class="button" type="submit" value="{% trans %}Start search{% endtrans %}!" />
         </div>
     </div>
@@ -84,9 +84,9 @@
 
 {% if results %}
     {% for result in results %}
-    <div class="row search-row">
-        <div class="large-12 columns">
-            <table>
+    <div class="search-row">
+        <div class="col-sm-12">
+            <table class="table">
             {% for resultSourceKey,resultSource in result._source %}
                 <tr>
                     <td><strong>{{ resultSourceKey }}</strong></td>

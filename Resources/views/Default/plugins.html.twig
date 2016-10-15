@@ -4,24 +4,22 @@
 
 {% block content %}
     {% if plugins %}
-    <div class="row">
-        <div class="large-6 columns">
-            <h2>{% trans %}Plugins{% endtrans %}</h2>
-            <table>
-                <tbody>
-                {% for plugin in plugins %}
-                    <tr>
-                        <td>
-                            <a href="http://{{ hosts }}{{ plugin.url }}" target="_blank">
-                                <strong>{{ plugin.name }}</strong>
-                            </a>
-                        </td>
-                        <td>{{ plugin.description }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
+    <div class="col-sm-6">
+        <h2>{% trans %}Plugins{% endtrans %}</h2>
+        <table class="table">
+            <tbody>
+            {% for plugin in plugins %}
+                <tr>
+                    <td>
+                        <a href="http://{{ hosts }}{{ plugin.url }}" target="_blank">
+                            <strong>{{ plugin.name }}</strong>
+                        </a>
+                    </td>
+                    <td>{{ plugin.description }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
     {% endif %}
 {% endblock %}
