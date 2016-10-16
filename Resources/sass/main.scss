@@ -1,3 +1,7 @@
+body {
+    padding-top: 70px;
+}
+
 .search-row {
   margin-bottom: 20px;
 
@@ -30,4 +34,10 @@
 
 .reveal-modal {
   width: 325px;
+}
+
+.table-borderless {
+    td {
+        border: none !important;
+    }
 }

@@ -26,3 +26,7 @@ body {
 .reveal-modal {
   width: 325px;
 }
+
+.table-borderless td {
+  border: none !important;
+}

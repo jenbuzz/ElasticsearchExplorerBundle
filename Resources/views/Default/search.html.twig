@@ -7,7 +7,7 @@
 {% if indexes %}
 <div class="col-sm-4">
     <form>
-        <table class="table">
+        <table class="table table-borderless">
             <tr>
                 <td><label>{% trans %}Select index{% endtrans %}:</label></td>
                 <td>
@@ -85,8 +85,8 @@
 {% if results %}
     {% for result in results %}
     <div class="search-row">
-        <div class="col-sm-12">
-            <table class="table">
+        <div class="col-sm-12 panel panel-info">
+            <table class="table table-hover">
             {% for resultSourceKey,resultSource in result._source %}
                 <tr>
                     <td><strong>{{ resultSourceKey }}</strong></td>
