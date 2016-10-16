@@ -5,81 +5,81 @@
 {% block content %}
 
 {% if indexes %}
-<form>
-    <div>
-        <div class="col-sm-12">
-            <label>{% trans %}Select index{% endtrans %}:
-                <select id="search-select-index">
-                    <option value="-1">...</option>
-                {% for index in indexes %}
-                    <option value="{{ index.name }}"{% if searchindex==index.name %} selected{% endif %}>{{ index.name }}</option>
-                {% endfor %}
-                </select>
-            </label>
-        </div>
-    </div>
-
-    <div class="{% if searchindex == false %}invisible{% endif %}">
-        <div class="col-sm-12">
-            <label>{% trans %}Select type{% endtrans %}:
-                <select id="search-select-type">
-                    <option value="-1">...</option>
-                {% for type in types %}
-                    <option value="{{ type.name }}"{% if searchtype==type.name %} selected{% endif %}>{{ type.name }}</option>
-                {% endfor %}
-                </select>
-            </label>
-        </div>
-    </div>
-
-    <div class="{% if searchtype == false %} invisible{% endif %}">
-        <div class="col-sm-12">
-            <label>{% trans %}Search in field{% endtrans %}: 
-                <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
-                <select class="searchfield" name="searchfield[]" multiple="multiple" required>
-                    {% for field in fields %}
-                    <option value="{{ field.name }}"{% if field.name in searchfield %} selected{% endif %}>{{ field.name }}</option>
+<div class="col-sm-4">
+    <form>
+        <table class="table">
+            <tr>
+                <td><label>{% trans %}Select index{% endtrans %}:</label></td>
+                <td>
+                    <select id="search-select-index">
+                        <option value="-1">...</option>
+                    {% for index in indexes %}
+                        <option value="{{ index.name }}"{% if searchindex==index.name %} selected{% endif %}>{{ index.name }}</option>
                     {% endfor %}
-                </select>
-            </label>
+                    </select>
+                </td>
+            </tr>
 
-            <div id="modalFields" class="reveal-modal" data-reveal>
-                <h5>Fields</h5>
-                <table>
-                    <thead>
-                        <tr>
-                            <th><strong>{% trans %}Name{% endtrans %}</strong></th>
-                            <th><strong>{% trans %}Type{% endtrans %}</strong></th>
-                            <th>{% trans %}Index{% endtrans %}</th>
-                        </tr>
-                    </thead>
-                    {% for field in fields %}
-                    <tr>
-                        <td>{{ field.name }}</td>
-                        <td>{{ field.type }}</td>
-                        <td>{{ field.index }}</td>
-                    </tr>
+            <tr class="{% if searchindex == false %}invisible{% endif %}">
+                <td><label>{% trans %}Select type{% endtrans %}:</label></td>
+                <td>
+                    <select id="search-select-type">
+                        <option value="-1">...</option>
+                    {% for type in types %}
+                        <option value="{{ type.name }}"{% if searchtype==type.name %} selected{% endif %}>{{ type.name }}</option>
                     {% endfor %}
-                </table>
-                <a class="close-reveal-modal">&#215;</a>
-            </div>
-        </div>
-    </div>
+                    </select>
+                </td>
+            </tr>
 
-    <div class="{% if searchtype == false %} invisible{% endif %}">
-        <div class="col-sm-12">
-            <label>{% trans %}Search for{% endtrans %}:
-                <input name="searchterm" type="text" value="{% if searchterm %}{{ searchterm }}{% endif %}" required />
-            </label>
-        </div>
-    </div>
+            <tr class="{% if searchtype == false %} invisible{% endif %}">
+                <td><label>{% trans %}Search in field{% endtrans %}:</label></td>
+                <td>
+                    <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
+                    <select class="searchfield" name="searchfield[]" multiple="multiple" required>
+                        {% for field in fields %}
+                        <option value="{{ field.name }}"{% if field.name in searchfield %} selected{% endif %}>{{ field.name }}</option>
+                        {% endfor %}
+                    </select>
 
-    <div class="{% if searchtype == false %} invisible{% endif %}">
-        <div class="col-sm-12">
-            <input class="button" type="submit" value="{% trans %}Start search{% endtrans %}!" />
-        </div>
-    </div>
-</form>
+                    {#
+                    <div id="modalFields" class="reveal-modal" data-reveal>
+                        <h5>Fields</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><strong>{% trans %}Name{% endtrans %}</strong></th>
+                                    <th><strong>{% trans %}Type{% endtrans %}</strong></th>
+                                    <th>{% trans %}Index{% endtrans %}</th>
+                                </tr>
+                            </thead>
+                            {% for field in fields %}
+                            <tr>
+                                <td>{{ field.name }}</td>
+                                <td>{{ field.type }}</td>
+                                <td>{{ field.index }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                    #}
+                </td>
+            </tr>
+
+            <tr class="{% if searchtype == false %} invisible{% endif %}">
+                <td><label>{% trans %}Search for{% endtrans %}:</label></td>
+                <td><input name="searchterm" type="text" value="{% if searchterm %}{{ searchterm }}{% endif %}" required /></td>
+            </tr>
+
+            <tr class="{% if searchtype == false %} invisible{% endif %}">
+                <td colspan="2">
+                    <input class="button" type="submit" value="{% trans %}Start search{% endtrans %}!" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 {% endif %}
 
 {% if results %}
