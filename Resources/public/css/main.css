@@ -30,3 +30,7 @@ body {
 .table-borderless td {
   border: none !important;
 }
+
+.vertical-middle {
+  vertical-align: middle !important;
+}

@@ -9,7 +9,7 @@
     <form>
         <table class="table table-borderless">
             <tr>
-                <td><label>{% trans %}Select index{% endtrans %}</label></td>
+                <td class="vertical-middle"><label>{% trans %}Select index{% endtrans %}</label></td>
                 <td>
                     <select id="search-select-index">
                         <option value="-1">...</option>
@@ -21,7 +21,7 @@
             </tr>
 
             <tr class="{% if searchindex == false %}invisible{% endif %}">
-                <td><label>{% trans %}Select type{% endtrans %}</label></td>
+                <td class="vertical-middle"><label>{% trans %}Select type{% endtrans %}</label></td>
                 <td>
                     <select id="search-select-type">
                         <option value="-1">...</option>
@@ -68,7 +68,7 @@
             </tr>
 
             <tr class="{% if searchtype == false %} invisible{% endif %}">
-                <td><label>{% trans %}Search for{% endtrans %}</label></td>
+                <td class="vertical-middle"><label>{% trans %}Search for{% endtrans %}</label></td>
                 <td><input name="searchterm" type="text" value="{% if searchterm %}{{ searchterm }}{% endif %}" required /></td>
             </tr>
 
