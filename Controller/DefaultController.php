@@ -30,7 +30,7 @@ class DefaultController extends Controller
         // Redirect to a pretty url after search submit.
         if ($searchindex && $searchtype && !empty($request->query->get('searchfield'))  && !empty($request->query->get('searchterm'))) {
             $strSearchfield = "";
-            foreach ($this->get('request')->query->get('searchfield') as $field) {
+            foreach ($request->query->get('searchfield') as $field) {
                 $strSearchfield .= $field.',';
             }
             $strSearchfield = rtrim($strSearchfield, ',');
@@ -40,7 +40,7 @@ class DefaultController extends Controller
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
                 'searchfield' => $strSearchfield,
-                'searchterm' => $this->get('request')->query->get('searchterm'),
+                'searchterm' => $request->query->get('searchterm'),
             ));
 
             return $this->redirect($url);
