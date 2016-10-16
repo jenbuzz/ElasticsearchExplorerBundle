@@ -3,6 +3,7 @@
 namespace DanLyn\ElasticsearchExplorerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -24,8 +25,10 @@ class DefaultController extends Controller
      */
     public function searchAction($searchindex = false, $searchtype = false, $searchfield = false, $searchterm = false)
     {
+        $request = Request::createFromGlobals();
+
         // Redirect to a pretty url after search submit.
-        if ($searchindex && $searchtype && !empty($this->get('request')->query->get('searchfield'))  && !empty($this->get('request')->query->get('searchterm'))) {
+        if ($searchindex && $searchtype && !empty($request->query->get('searchfield'))  && !empty($request->query->get('searchterm'))) {
             $strSearchfield = "";
             foreach ($this->get('request')->query->get('searchfield') as $field) {
                 $strSearchfield .= $field.',';
