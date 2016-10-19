@@ -14,28 +14,6 @@ body {
   height: 80px;
 }
 
-.top-bar-section {
-  ul {
-    li {
-      a {
-        font-size: 0.9rem;
-
-        &:hover {
-          background-color: #444 !important;
-        }
-
-        span {
-          margin-right: 5px;
-        }
-      }
-    }
-  }
-}
-
-.reveal-modal {
-  width: 325px;
-}
-
 .table-borderless {
     td {
         border: none !important;
