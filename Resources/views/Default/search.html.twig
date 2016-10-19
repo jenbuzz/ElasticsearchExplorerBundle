@@ -35,35 +35,43 @@
             <tr class="{% if searchtype == false %} invisible{% endif %}">
                 <td><label>{% trans %}Search in field{% endtrans %}</label></td>
                 <td>
-                    <a href="#" data-reveal-id="modalFields"><span class="fi-info"></span></a>
                     <select class="searchfield" name="searchfield[]" multiple="multiple" required>
                         {% for field in fields %}
                         <option value="{{ field.name }}"{% if field.name in searchfield %} selected{% endif %}>{{ field.name }}</option>
                         {% endfor %}
                     </select>
+                    <a href="#" data-toggle="modal" data-target="#infoModal"><span class="fi-info">i</span></a>
 
-                    {#
-                    <div id="modalFields" class="reveal-modal" data-reveal>
-                        <h5>Fields</h5>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><strong>{% trans %}Name{% endtrans %}</strong></th>
-                                    <th><strong>{% trans %}Type{% endtrans %}</strong></th>
-                                    <th>{% trans %}Index{% endtrans %}</th>
-                                </tr>
-                            </thead>
-                            {% for field in fields %}
-                            <tr>
-                                <td>{{ field.name }}</td>
-                                <td>{{ field.type }}</td>
-                                <td>{{ field.index }}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                        <a class="close-reveal-modal">&#215;</a>
+                    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Fields</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th><strong>{% trans %}Name{% endtrans %}</strong></th>
+                                                <th><strong>{% trans %}Type{% endtrans %}</strong></th>
+                                                <th>{% trans %}Index{% endtrans %}</th>
+                                            </tr>
+                                        </thead>
+                                        {% for field in fields %}
+                                        <tr>
+                                            <td>{{ field.name }}</td>
+                                            <td>{{ field.type }}</td>
+                                            <td>{{ field.index }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    #}
                 </td>
             </tr>
 
