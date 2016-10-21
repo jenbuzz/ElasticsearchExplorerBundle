@@ -41,6 +41,32 @@ assetic:
     bundles: ['DanLynElasticsearchExplorerBundle']
 
     # ...
+
+    assets:
+        fontawesome_font_otf:
+            inputs:
+                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/FontAwesome.otf'
+            output: Resources/public/fonts/FontAwesome.otf
+        fontawesome_font_woff:
+            inputs:
+                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.woff'
+            output: Resources/public/fonts/fontawesome-webfont.woff
+        fontawesome_font_woff:
+            inputs:
+                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.woff2'
+            output: Resources/public/fonts/fontawesome-webfont.woff2
+        fontawesome_font_ttf:
+            inputs:
+                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.ttf'
+            output: Resources/public/fonts/fontawesome-webfont.ttf
+        fontawesome_font_svg:
+            inputs:
+                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.svg'
+            output: Resources/public/fonts/fontawesome-webfont.svg
+        fontawesome_font_eot:
+            inputs:
+                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.eot'
+            output: Resources/public/fonts/fontawesome-webfont.eot
 ```
 
 Setup language by adding to following snippet to your local config file:
