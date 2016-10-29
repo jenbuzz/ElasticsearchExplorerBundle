@@ -51,7 +51,7 @@ assetic:
             inputs:
                 - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.woff'
             output: Resources/public/fonts/fontawesome-webfont.woff
-        fontawesome_font_woff:
+        fontawesome_font_woff2:
             inputs:
                 - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.woff2'
             output: Resources/public/fonts/fontawesome-webfont.woff2
