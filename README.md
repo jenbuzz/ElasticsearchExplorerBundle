@@ -87,7 +87,7 @@ hosts: "localhost:9200"
 ##Testing
 Run PHPUnit from the root of your Symfony application using the following command:
 ```
-phpunit -c app/
+phpunit src/DanLyn/ElasticsearchExplorerBundle/Tests/
 ```
 
 ##License
