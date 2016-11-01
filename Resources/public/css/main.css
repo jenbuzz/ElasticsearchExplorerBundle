@@ -28,3 +28,7 @@ body {
 .vertical-middle {
   vertical-align: middle !important;
 }
+
+.modal-dialog th {
+  width: 42%;
+}
