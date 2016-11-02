@@ -18,6 +18,12 @@ body {
     vertical-align: top;
 }
 
+form .table {
+    input, select {
+        width: 100%;
+    }
+}
+
 .table-borderless {
     td {
         border: none !important;
