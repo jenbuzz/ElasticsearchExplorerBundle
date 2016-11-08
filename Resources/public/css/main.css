@@ -1,38 +1,30 @@
 body {
   padding-top: 70px;
 }
-
-.search-row {
+body .search-row {
   margin-bottom: 20px;
 }
-.search-row table {
+body .search-row table {
   width: 100%;
 }
-
-.searchfield {
+body .searchfield {
   height: 80px;
 }
-
-.searchfield-info {
+body .searchfield-info {
   vertical-align: top;
 }
-
-form .table input, form .table select {
+body form .table input, body form .table select {
   width: 100%;
 }
-
-.table-borderless td {
+body .table.table-borderless td {
   border: none !important;
 }
-
-.table-nomargin {
+body .table.table-nomargin {
   margin: 0 !important;
 }
-
-.vertical-middle {
+body .vertical-middle {
   vertical-align: middle !important;
 }
-
-.modal-dialog th {
+body .modal-dialog th {
   width: 42%;
 }
