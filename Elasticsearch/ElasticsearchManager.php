@@ -175,8 +175,6 @@ class ElasticsearchManager
                 $results = $this->client->search($params);
                 if (isset($results['hits']) && isset($results['hits']['hits']) && !empty($results['hits']['hits'])) {
                     return $results['hits']['hits'];
-                } else {
-                    return array();
                 }
             } catch (\Elasticsearch\Common\Exceptions\BadRequest400Exception $e) {
                 return array();
