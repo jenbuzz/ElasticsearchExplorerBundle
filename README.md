@@ -1,7 +1,7 @@
-#ElasticsearchExplorerBundle
+# ElasticsearchExplorerBundle
 Elasticsearch status and search functionality as a Symfony3 bundle. This bundle uses the official elasticsearch-php client and the front-end framework Bootstrap.
 
-##Installation
+## Installation
 Add the following snippet to your local projects composer.json file:
 ```
 {
@@ -77,19 +77,19 @@ framework:
     '...
 ```
 
-##Configuration
+## Configuration
 
 In Resources/config/elasticsearch.yml it is possible to configure to hostname of the Elasticsearch instance:
 ```
 hosts: "localhost:9200"
 ```
 
-##Testing
+## Testing
 Run PHPUnit from the root of your Symfony application using the following command:
 ```
 phpunit src/DanLyn/ElasticsearchExplorerBundle/Tests/
 ```
 
-##License
+## License
 
 ElasticsearchExplorerBundle is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
