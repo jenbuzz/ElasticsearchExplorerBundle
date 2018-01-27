@@ -3,4 +3,6 @@ require('../css/bootstrap-theme.min.css');
 require('../css/font-awesome.min.css');
 require('../css/app.scss');
 
+require('./bootstrap.min.js');
+require('./jquery.cookie.js');
 require('./search.js');
