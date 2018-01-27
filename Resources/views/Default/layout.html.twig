@@ -7,13 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% stylesheets 
-            '@DanLynElasticsearchExplorerBundle/Resources/public/css/bootstrap.min.css' 
-            '@DanLynElasticsearchExplorerBundle/Resources/public/css/bootstrap-theme.min.css' 
-            '@DanLynElasticsearchExplorerBundle/Resources/public/css/font-awesome.min.css' filter='cssrewrite' 
-            '@DanLynElasticsearchExplorerBundle/Resources/public/css/main.css' filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}">
-        {% endstylesheets %}
+        <link rel="stylesheet" href="/bundles/danlynelasticsearchexplorer/build/app.css">
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -59,12 +53,6 @@
             {% block content %}{% endblock %}
         </div>
 
-        {% javascripts 
-            '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.js' 
-            '@DanLynElasticsearchExplorerBundle/Resources/public/js/vendor/jquery.cookie.js' 
-            '@DanLynElasticsearchExplorerBundle/Resources/public/js/bootstrap.min.js' 
-            '@DanLynElasticsearchExplorerBundle/Resources/public/js/search.min.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        <script type="text/javascript" src="/bundles/danlynelasticsearchexplorer/build/app.js"></script>
     </body>
 </html>
