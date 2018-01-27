@@ -1,3 +1,4 @@
 services:
     elasticsearch_manager:
         class: DanLyn\ElasticsearchExplorerBundle\Elasticsearch\ElasticsearchManager
+        public: true
