@@ -10,7 +10,7 @@ class DefaultController extends Controller
     /**
      * Home.
      */
-    public function indexAction()
+    public function index()
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
         $arrIndexes = $objElasticsearchManager->getIndexStats();
@@ -23,7 +23,7 @@ class DefaultController extends Controller
     /**
      * Search.
      */
-    public function searchAction($searchindex = false, $searchtype = false, $searchfield = false, $searchterm = false)
+    public function search($searchindex = false, $searchtype = false, $searchfield = false, $searchterm = false)
     {
         $request = Request::createFromGlobals();
 
@@ -86,7 +86,7 @@ class DefaultController extends Controller
     /**
      * Configuration.
      */
-    public function configAction()
+    public function config()
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
 
@@ -100,7 +100,7 @@ class DefaultController extends Controller
     /**
      * Plugins.
      */
-    public function pluginsAction()
+    public function plugins()
     {
         $objElasticsearchManager = $this->get('elasticsearch_manager');
 

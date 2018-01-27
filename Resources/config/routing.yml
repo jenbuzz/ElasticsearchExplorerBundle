@@ -1,27 +1,28 @@
 dan_lyn_elasticsearch_explorer_start:
     path:     /elasticsearchexplorer/
-    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:index }
+    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::index
 
 dan_lyn_elasticsearch_explorer_search:
     path:     /elasticsearchexplorer/search/
-    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
+    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
 
 dan_lyn_elasticsearch_explorer_search_index:
     path:     /elasticsearchexplorer/search/{searchindex}/
+    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
     defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
 
 dan_lyn_elasticsearch_explorer_search_type:
     path:     /elasticsearchexplorer/search/{searchindex}/{searchtype}/
-    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
+    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
 
 dan_lyn_elasticsearch_explorer_search_term:
     path:     /elasticsearchexplorer/search/{searchindex}/{searchtype}/{searchfield}/{searchterm}/
-    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
+    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
 
 dan_lyn_elasticsearch_explorer_config:
     path:     /elasticsearchexplorer/config/
-    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:config }
+    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::config
 
 dan_lyn_elasticsearch_explorer_plugins:
     path:     /elasticsearchexplorer/plugins/
-    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:plugins }
+    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::plugins
