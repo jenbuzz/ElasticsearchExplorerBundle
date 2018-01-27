@@ -15,7 +15,7 @@ class DefaultController extends Controller
         $objElasticsearchManager = $this->get('elasticsearch_manager');
         $arrIndexes = $objElasticsearchManager->getIndexStats();
 
-        return $this->render('DanLynElasticsearchExplorerBundle:Default:index.html.twig', array(
+        return $this->render('@DanLynElasticsearchExplorer/Default/index.html.twig', array(
             'indexes' => $arrIndexes,
         ));
     }
@@ -71,7 +71,7 @@ class DefaultController extends Controller
             $searchfield = $objElasticsearchManager->convertSearchfieldsToArray($searchfield);
         }
 
-        return $this->render('DanLynElasticsearchExplorerBundle:Default:search.html.twig', array(
+        return $this->render('@DanLynElasticsearchExplorer/Default/search.html.twig', array(
             'searchindex' => $searchindex,
             'searchtype' => $searchtype,
             'searchfield' => $searchfield,
@@ -92,7 +92,7 @@ class DefaultController extends Controller
 
         $arrConfiguration = $objElasticsearchManager->getConfiguration();
 
-        return $this->render('DanLynElasticsearchExplorerBundle:Default:config.html.twig', array(
+        return $this->render('@DanLynElasticsearchExplorer/Default/config.html.twig', array(
             'hosts' => $arrConfiguration['hosts'],
         ));
     }
@@ -113,7 +113,7 @@ class DefaultController extends Controller
             $host = $arrConfiguration['hosts'][0];
         }
 
-        return $this->render('DanLynElasticsearchExplorerBundle:Default:plugins.html.twig', array(
+        return $this->render('@DanLynElasticsearchExplorer/Default/plugins.html.twig', array(
             'plugins' => $arrPlugins,
             'hosts' => $host,
         ));
