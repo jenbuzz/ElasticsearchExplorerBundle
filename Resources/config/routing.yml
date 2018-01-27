@@ -9,7 +9,6 @@ dan_lyn_elasticsearch_explorer_search:
 dan_lyn_elasticsearch_explorer_search_index:
     path:     /elasticsearchexplorer/search/{searchindex}/
     controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
-    defaults: { _controller: DanLynElasticsearchExplorerBundle:Default:search }
 
 dan_lyn_elasticsearch_explorer_search_type:
     path:     /elasticsearchexplorer/search/{searchindex}/{searchtype}/
