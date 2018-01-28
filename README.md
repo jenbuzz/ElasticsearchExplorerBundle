@@ -1,5 +1,5 @@
 # ElasticsearchExplorerBundle
-Elasticsearch status and search functionality as a Symfony3 bundle. This bundle uses the official elasticsearch-php client and the front-end framework Bootstrap.
+Elasticsearch status and search functionality as a Symfony 4 bundle. This bundle uses the official elasticsearch-php client and the front-end framework Bootstrap.
 
 ## Installation
 Add the following snippet to your local projects composer.json file:
@@ -17,59 +17,28 @@ Add the following snippet to your local projects composer.json file:
 }
 ```
 
-Add the ElasticsearchExplorerBundle to the bundles array in your local AppKernel.php file:
+Add the ElasticsearchExplorerBundle to the bundles array in your local config/bundles.php file:
 ```
-$bundles = array(
+return [
   // ...
 
-  new DanLyn\ElasticsearchExplorerBundle\DanLynElasticsearchExplorerBundle(),
-);
+  DanLyn\ElasticsearchExplorerBundle\DanLynElasticsearchExplorerBundle::class => ['all' => true],
+];
 ```
 
-Add the following snippet to your local config/routing file:
+Add the following snippet to your local config/routes.yaml file:
 ```
 dan_lyn_elasticsearch_explorer:
     resource: "@DanLynElasticsearchExplorerBundle/Resources/config/routing.yml"
     prefix:   /
 ```
 
-Add DanLynElasticsearchExplorerBundle and Foundation assets to the assetic configuration in your local config file:
+Link to bundle assets to your Symfony installation by installing the assets using the following command:
 ```
-assetic:
-    # ...
-
-    bundles: ['DanLynElasticsearchExplorerBundle']
-
-    # ...
-
-    assets:
-        fontawesome_font_otf:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/FontAwesome.otf'
-            output: Resources/public/fonts/FontAwesome.otf
-        fontawesome_font_woff:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.woff'
-            output: Resources/public/fonts/fontawesome-webfont.woff
-        fontawesome_font_woff2:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.woff2'
-            output: Resources/public/fonts/fontawesome-webfont.woff2
-        fontawesome_font_ttf:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.ttf'
-            output: Resources/public/fonts/fontawesome-webfont.ttf
-        fontawesome_font_svg:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.svg'
-            output: Resources/public/fonts/fontawesome-webfont.svg
-        fontawesome_font_eot:
-            inputs:
-                - '../src/DanLyn/ElasticsearchExplorerBundle/Resources/public/fonts/fontawesome-webfont.eot'
-            output: Resources/public/fonts/fontawesome-webfont.eot
+php bin/console assets:install
 ```
 
-Setup language by adding to following snippet to your local config file:
+Setup language by adding to following snippet to your local config/packages/framework.yaml file (or change the locale in translation.yaml):
 ```
 framework:
     # ...
