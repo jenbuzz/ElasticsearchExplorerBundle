@@ -3,7 +3,7 @@ Elasticsearch status and search functionality as a Symfony 4 bundle. This bundle
 
 ## Installation
 Add the following snippet to your local projects composer.json file:
-```
+```json
 {
   "require": {
     "dan-lyn/elasticsearch-explorer-bundle": "dev-master"
