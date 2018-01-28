@@ -18,7 +18,7 @@ Add the following snippet to your local projects composer.json file:
 ```
 
 Add the ElasticsearchExplorerBundle to the bundles array in your local config/bundles.php file:
-```
+```php
 return [
   // ...
 
@@ -27,7 +27,7 @@ return [
 ```
 
 Add the following snippet to your local config/routes.yaml file:
-```
+```yaml
 dan_lyn_elasticsearch_explorer:
     resource: "@DanLynElasticsearchExplorerBundle/Resources/config/routing.yml"
     prefix:   /
@@ -39,11 +39,11 @@ php bin/console assets:install
 ```
 
 Setup language by adding to following snippet to your local config/packages/framework.yaml file (or change the locale in translation.yaml):
-```
+```yaml
 framework:
     # ...
     translator: { fallbacks: [en] }
-    '...
+    # ...
 ```
 
 ## Configuration
