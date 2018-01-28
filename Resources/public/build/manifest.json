@@ -1,14 +1,9 @@
 {
   "build/app.css": "/build/app.css",
   "build/app.js": "/build/app.js",
-  "build/fonts/fontawesome-webfont.eot?v=4.6.3": "/build/fonts/fontawesome-webfont.25a32416.eot",
-  "build/fonts/fontawesome-webfont.ttf?v=4.6.3": "/build/fonts/fontawesome-webfont.1dc35d25.ttf",
-  "build/fonts/fontawesome-webfont.woff2?v=4.6.3": "/build/fonts/fontawesome-webfont.e6cf7c6e.woff2",
-  "build/fonts/fontawesome-webfont.woff?v=4.6.3": "/build/fonts/fontawesome-webfont.c8ddf1e5.woff",
   "build/fonts/glyphicons-halflings-regular.eot": "/build/fonts/glyphicons-halflings-regular.f4769f9b.eot",
   "build/fonts/glyphicons-halflings-regular.ttf": "/build/fonts/glyphicons-halflings-regular.e18bbf61.ttf",
   "build/fonts/glyphicons-halflings-regular.woff": "/build/fonts/glyphicons-halflings-regular.fa277232.woff",
   "build/fonts/glyphicons-halflings-regular.woff2": "/build/fonts/glyphicons-halflings-regular.448c34a5.woff2",
-  "build/images/fontawesome-webfont.svg?v=4.6.3": "/build/images/fontawesome-webfont.d7c63908.svg",
   "build/images/glyphicons-halflings-regular.svg": "/build/images/glyphicons-halflings-regular.89889688.svg"
 }
