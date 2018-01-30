@@ -15,9 +15,9 @@ class DefaultController extends Controller
         $objElasticsearchManager = $this->get('elasticsearch_manager');
         $arrIndexes = $objElasticsearchManager->getIndexStats();
 
-        return $this->render('@DanLynElasticsearchExplorer/Default/index.html.twig', array(
+        return $this->render('@DanLynElasticsearchExplorer/Default/index.html.twig', [
             'indexes' => $arrIndexes,
-        ));
+        ]);
     }
 
     /**
@@ -36,12 +36,12 @@ class DefaultController extends Controller
             $strSearchfield = rtrim($strSearchfield, ',');
 
             // Generate redirect url.
-            $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', array(
+            $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', [
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
                 'searchfield' => $strSearchfield,
                 'searchterm' => $request->query->get('searchterm'),
-            ));
+            ]);
 
             return $this->redirect($url);
         }
@@ -51,19 +51,19 @@ class DefaultController extends Controller
         $arrIndexes = $objElasticsearchManager->getIndexStats();
 
         // Get types.
-        $arrTypes = array();
+        $arrTypes = [];
         if ($searchindex) {
             $arrTypes = $objElasticsearchManager->getIndexMappingTypes($searchindex);
         }
 
         // Get fields.
-        $arrFields = array();
+        $arrFields = [];
         if ($searchindex && $searchtype) {
             $arrFields = $objElasticsearchManager->getFieldsInIndexType($searchindex, $searchtype);
         }
 
         // Get results.
-        $arrResults = array();
+        $arrResults = [];
         if ($searchindex && $searchtype && $searchfield && $searchterm) {
             $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
 
@@ -71,7 +71,7 @@ class DefaultController extends Controller
             $searchfield = $objElasticsearchManager->convertSearchfieldsToArray($searchfield);
         }
 
-        return $this->render('@DanLynElasticsearchExplorer/Default/search.html.twig', array(
+        return $this->render('@DanLynElasticsearchExplorer/Default/search.html.twig', [
             'searchindex' => $searchindex,
             'searchtype' => $searchtype,
             'searchfield' => $searchfield,
@@ -80,7 +80,7 @@ class DefaultController extends Controller
             'types' => $arrTypes,
             'fields' => $arrFields,
             'results' => $arrResults,
-        ));
+        ]);
     }
 
     /**
@@ -92,9 +92,9 @@ class DefaultController extends Controller
 
         $arrConfiguration = $objElasticsearchManager->getConfiguration();
 
-        return $this->render('@DanLynElasticsearchExplorer/Default/config.html.twig', array(
+        return $this->render('@DanLynElasticsearchExplorer/Default/config.html.twig', [
             'hosts' => $arrConfiguration['hosts'],
-        ));
+        ]);
     }
 
     /**
@@ -113,9 +113,9 @@ class DefaultController extends Controller
             $host = $arrConfiguration['hosts'][0];
         }
 
-        return $this->render('@DanLynElasticsearchExplorer/Default/plugins.html.twig', array(
+        return $this->render('@DanLynElasticsearchExplorer/Default/plugins.html.twig', [
             'plugins' => $arrPlugins,
             'hosts' => $host,
-        ));
+        ]);
     }
 }

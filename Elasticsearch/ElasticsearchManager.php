@@ -35,7 +35,9 @@ class ElasticsearchManager
      */
     public function getConfiguration()
     {
-        $arrDefaultConfiguration = array('hosts' => '');
+        $arrDefaultConfiguration = [
+            'hosts' => '',
+        ];
 
         try {
             $yamlParser = new Parser();
@@ -43,7 +45,9 @@ class ElasticsearchManager
             $arrConfiguration = $yamlParser->parse(file_get_contents(dirname(__FILE__).'/../Resources/config/elasticsearch.yml'));
             if (!empty($arrConfiguration)) {
                 if (isset($arrConfiguration['hosts'])) {
-                    $arrConfiguration['hosts'] = array($arrConfiguration['hosts']);
+                    $arrConfiguration['hosts'] = [
+                        $arrConfiguration['hosts'],
+                    ];
                 }
 
                 return $arrConfiguration;
@@ -62,7 +66,7 @@ class ElasticsearchManager
      */
     public function getIndexStats()
     {
-        $arrIndexes = array();
+        $arrIndexes = [];
         
         if ($this->isConnected) {
             $objIndexes = $this->client->indices();
@@ -70,11 +74,11 @@ class ElasticsearchManager
             $arrIndexesStats = $arrStats['indices'];
 
             foreach ($arrIndexesStats as $indexKey => $indexValues) {
-                $arrIndexes[] = array(
+                $arrIndexes[] = [
                     'name' => $indexKey,
                     'total_docs' => $indexValues['total']['docs']['count'],
                     'total_size' => $indexValues['total']['store']['size_in_bytes'],
-                );
+                ];
             }
         }
         
@@ -90,17 +94,19 @@ class ElasticsearchManager
      */
     public function getIndexMappingTypes($index)
     {
-        $arrMappingTypes = array();
+        $arrMappingTypes = [];
         
         if ($this->isConnected) {
             $objIndexes = $this->client->indices();
-            $arrMappings = $objIndexes->getMapping(array('index' => $index));
+            $arrMappings = $objIndexes->getMapping([
+                'index' => $index,
+            ]);
 
             if (isset($arrMappings[$index]['mappings']) && !empty($arrMappings[$index]['mappings'])) {
                 foreach ($arrMappings[$index]['mappings'] as $typeKey => $typeValue) {
-                    $arrMappingTypes[] = array(
+                    $arrMappingTypes[] = [
                         'name' => $typeKey,
-                    );
+                    ];
                 }
             }
         }
@@ -118,19 +124,21 @@ class ElasticsearchManager
      */
     public function getFieldsInIndexType($index, $type)
     {
-        $arrFields = array();
+        $arrFields = [];
         
         if ($this->isConnected) {
             $objIndexes = $this->client->indices();
-            $arrMappings = $objIndexes->getMapping(array('index' => $index));
+            $arrMappings = $objIndexes->getMapping([
+                'index' => $index,
+            ]);
 
             if (isset($arrMappings[$index]['mappings'][$type]['properties']) && !empty($arrMappings[$index]['mappings'][$type]['properties'])) {
                 foreach ($arrMappings[$index]['mappings'][$type]['properties'] as $typeKey => $typeValue) {
-                    $arrFields[] = array(
+                    $arrFields[] = [
                         'name' => $typeKey,
                         'type' => $typeValue['type'],
                         'index' => isset($typeValue['index']) ? $typeValue['index'] : '',
-                    );
+                    ];
                 }
             }
         }
@@ -154,34 +162,34 @@ class ElasticsearchManager
             try {
                 $arrFields = $this->convertSearchfieldsToArray($fields);
 
-                $params = array(
+                $params = [
                     'index' => $index,
                     'type' => $type,
-                    'body' => array(
-                        'query' => array(
-                            'bool' => array(
-                                'should' => array(
-                                    'multi_match' => array(
+                    'body' => [
+                        'query' => [
+                            'bool' => [
+                                'should' => [
+                                    'multi_match' => [
                                         'query' => $term,
                                         'operator' => 'or',
                                         'fields' => $arrFields,
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                );
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ];
 
                 $results = $this->client->search($params);
                 if (isset($results['hits']) && isset($results['hits']['hits']) && !empty($results['hits']['hits'])) {
                     return $results['hits']['hits'];
                 }
             } catch (\Elasticsearch\Common\Exceptions\BadRequest400Exception $e) {
-                return array();
+                return [];
             }
         }
         
-        return array();
+        return [];
     }
 
     /**
@@ -198,7 +206,7 @@ class ElasticsearchManager
             return $arrPlugins;
         }
         
-        return array();
+        return [];
     }
 
     /**
@@ -213,7 +221,9 @@ class ElasticsearchManager
         if (strpos($searchfields, ',') !== false) {
             $arrFields = explode(',', $searchfields);
         } else {
-            $arrFields = array($searchfields);
+            $arrFields = [
+                $searchfields,
+            ];
         }
 
         return $arrFields;
