@@ -1,4 +1,8 @@
 services:
-    elasticsearch_manager:
-        class: DanLyn\ElasticsearchExplorerBundle\Elasticsearch\ElasticsearchManager
+    DanLyn\ElasticsearchExplorerBundle\Elasticsearch\:
+        resource: '../../Elasticsearch/*'
+
+    DanLyn\ElasticsearchExplorerBundle\Controller\:
+        resource: '../../Controller'
         public: true
+        tags: ['controller.service_arguments']

@@ -4,16 +4,16 @@ namespace DanLyn\ElasticsearchExplorerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use DanLyn\ElasticsearchExplorerBundle\Elasticsearch\ElasticsearchManager;
 
 class DefaultController extends Controller
 {
     /**
      * Home.
      */
-    public function index()
+    public function index(ElasticsearchManager $elasticsearchManager)
     {
-        $objElasticsearchManager = $this->get('elasticsearch_manager');
-        $arrIndexes = $objElasticsearchManager->getIndexStats();
+        $arrIndexes = $elasticsearchManager->getIndexStats();
 
         return $this->render('@DanLynElasticsearchExplorer/Default/index.html.twig', [
             'indexes' => $arrIndexes,
@@ -23,7 +23,7 @@ class DefaultController extends Controller
     /**
      * Search.
      */
-    public function search($searchindex = false, $searchtype = false, $searchfield = false, $searchterm = false)
+    public function search(ElasticsearchManager $elasticsearchManager, $searchindex = false, $searchtype = false, $searchfield = false, $searchterm = false)
     {
         $request = Request::createFromGlobals();
 
@@ -47,28 +47,27 @@ class DefaultController extends Controller
         }
 
         // Get indexes.
-        $objElasticsearchManager = $this->get('elasticsearch_manager');
-        $arrIndexes = $objElasticsearchManager->getIndexStats();
+        $arrIndexes = $elasticsearchManager->getIndexStats();
 
         // Get types.
         $arrTypes = [];
         if ($searchindex) {
-            $arrTypes = $objElasticsearchManager->getIndexMappingTypes($searchindex);
+            $arrTypes = $elasticsearchManager->getIndexMappingTypes($searchindex);
         }
 
         // Get fields.
         $arrFields = [];
         if ($searchindex && $searchtype) {
-            $arrFields = $objElasticsearchManager->getFieldsInIndexType($searchindex, $searchtype);
+            $arrFields = $elasticsearchManager->getFieldsInIndexType($searchindex, $searchtype);
         }
 
         // Get results.
         $arrResults = [];
         if ($searchindex && $searchtype && $searchfield && $searchterm) {
-            $arrResults = $objElasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
+            $arrResults = $elasticsearchManager->search($searchindex, $searchtype, $searchfield, $searchterm);
 
             // Create array of searchfields.
-            $searchfield = $objElasticsearchManager->convertSearchfieldsToArray($searchfield);
+            $searchfield = $elasticsearchManager->convertSearchfieldsToArray($searchfield);
         }
 
         return $this->render('@DanLynElasticsearchExplorer/Default/search.html.twig', [
@@ -86,11 +85,9 @@ class DefaultController extends Controller
     /**
      * Configuration.
      */
-    public function config()
+    public function config(ElasticsearchManager $elasticsearchManager)
     {
-        $objElasticsearchManager = $this->get('elasticsearch_manager');
-
-        $arrConfiguration = $objElasticsearchManager->getConfiguration();
+        $arrConfiguration = $elasticsearchManager->getConfiguration();
 
         return $this->render('@DanLynElasticsearchExplorer/Default/config.html.twig', [
             'hosts' => $arrConfiguration['hosts'],
@@ -100,15 +97,13 @@ class DefaultController extends Controller
     /**
      * Plugins.
      */
-    public function plugins()
+    public function plugins(ElasticsearchManager $elasticsearchManager)
     {
-        $objElasticsearchManager = $this->get('elasticsearch_manager');
-
-        $arrPlugins = $objElasticsearchManager->getPlugins();
+        $arrPlugins = $elasticsearchManager->getPlugins();
 
         // Get the elasticsearch host to enable plugins linking.
         $host = '';
-        $arrConfiguration = $objElasticsearchManager->getConfiguration();
+        $arrConfiguration = $elasticsearchManager->getConfiguration();
         if (is_array($arrConfiguration) && isset($arrConfiguration['hosts']) && !empty($arrConfiguration['hosts'])) {
             $host = $arrConfiguration['hosts'][0];
         }
