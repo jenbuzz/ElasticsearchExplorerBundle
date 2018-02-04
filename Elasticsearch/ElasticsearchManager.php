@@ -33,7 +33,7 @@ class ElasticsearchManager
      *
      * @return array arrConfiguration
      */
-    public function getConfiguration()
+    public function getConfiguration(): array
     {
         $arrDefaultConfiguration = [
             'hosts' => '',
@@ -64,7 +64,7 @@ class ElasticsearchManager
      *
      * @return array arrIndexes
      */
-    public function getIndexStats()
+    public function getIndexStats(): array
     {
         $arrIndexes = [];
         
@@ -92,7 +92,7 @@ class ElasticsearchManager
      *
      * @return array $arrMappingTypes
      */
-    public function getIndexMappingTypes($index)
+    public function getIndexMappingTypes($index): array
     {
         $arrMappingTypes = [];
         
@@ -122,7 +122,7 @@ class ElasticsearchManager
      *
      * @return array $arrFields
      */
-    public function getFieldsInIndexType($index, $type)
+    public function getFieldsInIndexType($index, $type): array
     {
         $arrFields = [];
         
@@ -156,7 +156,7 @@ class ElasticsearchManager
      *
      * @return array $results
      */
-    public function search($index, $type, $fields, $term)
+    public function search($index, $type, $fields, $term): array
     {
         if ($this->isConnected) {
             try {
@@ -197,7 +197,7 @@ class ElasticsearchManager
      *
      * @return array $arrPlugins
      */
-    public function getPlugins()
+    public function getPlugins(): array
     {
         if ($this->isConnected) {
             $arrStatsCluster = $this->client->cluster()->stats();
@@ -216,7 +216,7 @@ class ElasticsearchManager
      *
      * @return array $arrFields
      */
-    public function convertSearchfieldsToArray($searchfields)
+    public function convertSearchfieldsToArray($searchfields): array
     {
         if (strpos($searchfields, ',') !== false) {
             $arrFields = explode(',', $searchfields);
