@@ -92,7 +92,7 @@ class ElasticsearchManager
      *
      * @return array $arrMappingTypes
      */
-    public function getIndexMappingTypes($index): array
+    public function getIndexMappingTypes(string $index): array
     {
         $arrMappingTypes = [];
         
@@ -122,7 +122,7 @@ class ElasticsearchManager
      *
      * @return array $arrFields
      */
-    public function getFieldsInIndexType($index, $type): array
+    public function getFieldsInIndexType(string $index, string $type): array
     {
         $arrFields = [];
         
@@ -156,7 +156,7 @@ class ElasticsearchManager
      *
      * @return array $results
      */
-    public function search($index, $type, $fields, $term): array
+    public function search(string $index, string $type, string $fields, string $term): array
     {
         if ($this->isConnected) {
             try {
@@ -216,7 +216,7 @@ class ElasticsearchManager
      *
      * @return array $arrFields
      */
-    public function convertSearchfieldsToArray($searchfields): array
+    public function convertSearchfieldsToArray(string $searchfields): array
     {
         if (strpos($searchfields, ',') !== false) {
             $arrFields = explode(',', $searchfields);
