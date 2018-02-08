@@ -9,7 +9,9 @@
             <tbody>
             {% if hosts %}
                 <tr>
-                    <td><strong>{% trans %}Host{% endtrans %}</strong></td>
+                    <td>
+                        <strong>{% trans %}Host{% endtrans %}</strong>
+                    </td>
                     <td>{% for host in hosts %}{{ host }}{% if loop.last == false %} ,{% endif %}{% endfor %}</td>
                 </tr>
             {% endif %}

@@ -15,9 +15,9 @@
                 <td>
                     <select id="search-select-index">
                         <option value="-1">...</option>
-                    {% for index in indexes %}
+                        {% for index in indexes %}
                         <option value="{{ index.name }}"{% if searchindex==index.name %} selected{% endif %}>{{ index.name }}</option>
-                    {% endfor %}
+                        {% endfor %}
                     </select>
                 </td>
             </tr>
