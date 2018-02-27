@@ -14,13 +14,16 @@
   "support": {
     "issues": "https://github.com/dan-lyn/ElasticsearchExplorerBundle/issues"
   },
+  "config": {
+    "sort-packages": true
+  },
   "require": {
+    "elasticsearch/elasticsearch": "^6.0",
     "php": "^7.0",
     "symfony/framework-bundle": "^4.0",
     "symfony/translation": "^4.0",
     "symfony/twig-bundle": "^4.0",
-    "symfony/yaml": "^4.0",
-    "elasticsearch/elasticsearch": "^6.0"
+    "symfony/yaml": "^4.0"
   },
   "require-dev": {
     "symfony/browser-kit": "^4.0"
