@@ -1,9 +1,9 @@
 <?php
 
-namespace DanLyn\ElasticsearchExplorerBundle;
+namespace Jenbuzz\ElasticsearchExplorerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class DanLynElasticsearchExplorerBundle extends Bundle
+class JenbuzzElasticsearchExplorerBundle extends Bundle
 {
 }

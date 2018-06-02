@@ -1,4 +1,4 @@
-{% extends '@DanLynElasticsearchExplorer/Default/layout.html.twig' %}
+{% extends '@JenbuzzElasticsearchExplorer/Default/layout.html.twig' %}
 
 {% block title 'ElasticsearchExplorer' %}
 
@@ -8,7 +8,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h2 class="panel-title">
-                        <a href="{{ path('dan_lyn_elasticsearch_explorer_search_index', {searchindex: index.name}) }}">
+                        <a href="{{ path('jenbuzz_elasticsearch_explorer_search_index', {searchindex: index.name}) }}">
                             {{ index.name }}
                         </a>
                     </h2>

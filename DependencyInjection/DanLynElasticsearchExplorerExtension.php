@@ -1,13 +1,13 @@
 <?php
 
-namespace DanLyn\ElasticsearchExplorerBundle\DependencyInjection;
+namespace Jenbuzz\ElasticsearchExplorerBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
-class DanLynElasticsearchExplorerExtension extends Extension
+class JenbuzzElasticsearchExplorerExtension extends Extension
 {
     /**
      * {@inheritdoc}

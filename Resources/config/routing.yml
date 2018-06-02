@@ -1,27 +1,27 @@
-dan_lyn_elasticsearch_explorer_start:
+jenbuzz_elasticsearch_explorer_start:
     path:     /elasticsearchexplorer/
-    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::index
+    controller: Jenbuzz\ElasticsearchExplorerBundle\Controller\DefaultController::index
 
-dan_lyn_elasticsearch_explorer_search:
+jenbuzz_elasticsearch_explorer_search:
     path:     /elasticsearchexplorer/search/
-    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
+    controller: Jenbuzz\ElasticsearchExplorerBundle\Controller\DefaultController::search
 
-dan_lyn_elasticsearch_explorer_search_index:
+jenbuzz_elasticsearch_explorer_search_index:
     path:     /elasticsearchexplorer/search/{searchindex}/
-    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
+    controller: Jenbuzz\ElasticsearchExplorerBundle\Controller\DefaultController::search
 
-dan_lyn_elasticsearch_explorer_search_type:
+jenbuzz_elasticsearch_explorer_search_type:
     path:     /elasticsearchexplorer/search/{searchindex}/{searchtype}/
-    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
+    controller: Jenbuzz\ElasticsearchExplorerBundle\Controller\DefaultController::search
 
-dan_lyn_elasticsearch_explorer_search_term:
+jenbuzz_elasticsearch_explorer_search_term:
     path:     /elasticsearchexplorer/search/{searchindex}/{searchtype}/{searchfield}/{searchterm}/
-    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::search
+    controller: Jenbuzz\ElasticsearchExplorerBundle\Controller\DefaultController::search
 
-dan_lyn_elasticsearch_explorer_config:
+jenbuzz_elasticsearch_explorer_config:
     path:     /elasticsearchexplorer/config/
-    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::config
+    controller: Jenbuzz\ElasticsearchExplorerBundle\Controller\DefaultController::config
 
-dan_lyn_elasticsearch_explorer_plugins:
+jenbuzz_elasticsearch_explorer_plugins:
     path:     /elasticsearchexplorer/plugins/
-    controller: DanLyn\ElasticsearchExplorerBundle\Controller\DefaultController::plugins
+    controller: Jenbuzz\ElasticsearchExplorerBundle\Controller\DefaultController::plugins

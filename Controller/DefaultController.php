@@ -1,10 +1,10 @@
 <?php
 
-namespace DanLyn\ElasticsearchExplorerBundle\Controller;
+namespace Jenbuzz\ElasticsearchExplorerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use DanLyn\ElasticsearchExplorerBundle\Elasticsearch\ElasticsearchManager;
+use Jenbuzz\ElasticsearchExplorerBundle\Elasticsearch\ElasticsearchManager;
 
 class DefaultController extends Controller
 {
@@ -15,7 +15,7 @@ class DefaultController extends Controller
     {
         $arrIndexes = $elasticsearchManager->getIndexStats();
 
-        return $this->render('@DanLynElasticsearchExplorer/Default/index.html.twig', [
+        return $this->render('@JenbuzzElasticsearchExplorer/Default/index.html.twig', [
             'indexes' => $arrIndexes,
         ]);
     }
@@ -36,7 +36,7 @@ class DefaultController extends Controller
             $strSearchfield = rtrim($strSearchfield, ',');
 
             // Generate redirect url.
-            $url = $this->generateUrl('dan_lyn_elasticsearch_explorer_search_term', [
+            $url = $this->generateUrl('jenbuzz_elasticsearch_explorer_search_term', [
                 'searchindex' => $searchindex,
                 'searchtype' => $searchtype,
                 'searchfield' => $strSearchfield,
@@ -70,7 +70,7 @@ class DefaultController extends Controller
             $searchfield = $elasticsearchManager->convertSearchfieldsToArray($searchfield);
         }
 
-        return $this->render('@DanLynElasticsearchExplorer/Default/search.html.twig', [
+        return $this->render('@JenbuzzElasticsearchExplorer/Default/search.html.twig', [
             'searchindex' => $searchindex,
             'searchtype' => $searchtype,
             'searchfield' => $searchfield,
@@ -89,7 +89,7 @@ class DefaultController extends Controller
     {
         $arrConfiguration = $elasticsearchManager->getConfiguration();
 
-        return $this->render('@DanLynElasticsearchExplorer/Default/config.html.twig', [
+        return $this->render('@JenbuzzElasticsearchExplorer/Default/config.html.twig', [
             'hosts' => $arrConfiguration['hosts'],
         ]);
     }
@@ -108,7 +108,7 @@ class DefaultController extends Controller
             $host = $arrConfiguration['hosts'][0];
         }
 
-        return $this->render('@DanLynElasticsearchExplorer/Default/plugins.html.twig', [
+        return $this->render('@JenbuzzElasticsearchExplorer/Default/plugins.html.twig', [
             'plugins' => $arrPlugins,
             'hosts' => $host,
         ]);

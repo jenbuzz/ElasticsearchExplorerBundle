@@ -1,8 +1,8 @@
 services:
-    DanLyn\ElasticsearchExplorerBundle\Elasticsearch\:
+    Jenbuzz\ElasticsearchExplorerBundle\Elasticsearch\:
         resource: '../../Elasticsearch/*'
 
-    DanLyn\ElasticsearchExplorerBundle\Controller\:
+    Jenbuzz\ElasticsearchExplorerBundle\Controller\:
         resource: '../../Controller'
         public: true
         tags: ['controller.service_arguments']

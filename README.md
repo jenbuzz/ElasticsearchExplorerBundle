@@ -6,12 +6,12 @@ Add the following snippet to your local projects composer.json file:
 ```json
 {
   "require": {
-    "dan-lyn/elasticsearch-explorer-bundle": "dev-master"
+    "jenbuzz/elasticsearch-explorer-bundle": "dev-master"
   },
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/dan-lyn/ElasticsearchExplorerBundle.git"
+      "url": "https://github.com/jenbuzz/ElasticsearchExplorerBundle.git"
     }
   ]
 }
@@ -22,14 +22,14 @@ Add the ElasticsearchExplorerBundle to the bundles array in your local config/bu
 return [
   // ...
 
-  DanLyn\ElasticsearchExplorerBundle\DanLynElasticsearchExplorerBundle::class => ['all' => true],
+  Jenbuzz\ElasticsearchExplorerBundle\JenbuzzElasticsearchExplorerBundle::class => ['all' => true],
 ];
 ```
 
 Add the following snippet to your local config/routes.yaml file:
 ```yaml
-dan_lyn_elasticsearch_explorer:
-    resource: "@DanLynElasticsearchExplorerBundle/Resources/config/routing.yml"
+jenbuzz_elasticsearch_explorer:
+    resource: "@JenbuzzElasticsearchExplorerBundle/Resources/config/routing.yml"
     prefix:   /
 ```
 
@@ -56,7 +56,7 @@ hosts: "localhost:9200"
 ## Testing
 Run PHPUnit from the root of your Symfony application using the following command:
 ```
-phpunit vendor/dan-lyn/elasticsearch-explorer-bundle/DanLyn/ElasticsearchExplorerBundle/
+phpunit vendor/jenbuzz/elasticsearch-explorer-bundle/Jenbuzz/ElasticsearchExplorerBundle/
 ```
 
 ## License

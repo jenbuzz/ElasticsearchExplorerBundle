@@ -1,6 +1,6 @@
 <?php
 
-namespace DanLyn\ElasticsearchExplorerBundle\DependencyInjection;
+namespace Jenbuzz\ElasticsearchExplorerBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -13,7 +13,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('dan_lyn_elasticsearch_explorer');
+        $rootNode = $treeBuilder->root('jenbuzz_elasticsearch_explorer');
 
         return $treeBuilder;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace DanLyn\ElasticsearchExplorerBundle\Tests\Controller;
+namespace Jenbuzz\ElasticsearchExplorerBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;

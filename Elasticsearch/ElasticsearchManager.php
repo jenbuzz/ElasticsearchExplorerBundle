@@ -1,6 +1,6 @@
 <?php
 
-namespace DanLyn\ElasticsearchExplorerBundle\Elasticsearch;
+namespace Jenbuzz\ElasticsearchExplorerBundle\Elasticsearch;
 
 use Symfony\Component\Yaml\Parser;
 

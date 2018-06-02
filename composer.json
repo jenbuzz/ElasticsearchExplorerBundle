@@ -1,18 +1,18 @@
 {
-  "name": "dan-lyn/elasticsearch-explorer-bundle",
+  "name": "jenbuzz/elasticsearch-explorer-bundle",
   "type": "symfony-bundle",
   "description": "Elasticsearch status and search functionality as a Symfony 4 bundle",
   "keywords": ["elasticsearch", "symfony4"],
-  "homepage": "https://github.com/dan-lyn/ElasticsearchExplorerBundle/",
+  "homepage": "https://github.com/jenbuzz/ElasticsearchExplorerBundle/",
   "license" : "MIT",
   "authors" : [
     {
-      "name": "dan-lyn",
-      "homepage": "https://github.com/dan-lyn/"
+      "name": "jenbuzz",
+      "homepage": "https://github.com/jenbuzz/"
     }
   ],
   "support": {
-    "issues": "https://github.com/dan-lyn/ElasticsearchExplorerBundle/issues"
+    "issues": "https://github.com/jenbuzz/ElasticsearchExplorerBundle/issues"
   },
   "config": {
     "sort-packages": true
@@ -30,8 +30,8 @@
   },
   "autoload": {
     "psr-0": {
-      "DanLyn\\ElasticsearchExplorerBundle\\": ""
+      "Jenbuzz\\ElasticsearchExplorerBundle\\": ""
     }
   },
-  "target-dir": "DanLyn/ElasticsearchExplorerBundle"
+  "target-dir": "Jenbuzz/ElasticsearchExplorerBundle"
 }

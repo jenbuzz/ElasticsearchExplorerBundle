@@ -2,7 +2,7 @@
   "name": "ElasticsearchExplorerBundle",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dan-lyn/ElasticsearchExplorerBundle"
+    "url": "https://github.com/jenbuzz/ElasticsearchExplorerBundle"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.1",
