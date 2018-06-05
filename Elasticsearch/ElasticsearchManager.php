@@ -134,6 +134,10 @@ class ElasticsearchManager
 
             if (isset($arrMappings[$index]['mappings'][$type]['properties']) && !empty($arrMappings[$index]['mappings'][$type]['properties'])) {
                 foreach ($arrMappings[$index]['mappings'][$type]['properties'] as $typeKey => $typeValue) {
+                    if (empty($typeValue['type'])) {
+                        continue;
+                    }
+
                     $arrFields[] = [
                         'name' => $typeKey,
                         'type' => $typeValue['type'],
